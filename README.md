@@ -6,8 +6,8 @@ https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTERSALE
 
 Содержание
 
-# Раздел 1: Введение
-Что такое Flutter?
+* Раздел 1: Введение
+* Что такое Flutter?
 Установка Flutter и Android Studio (Windows)
 Установка Android Emulator (Windows)
 Установка VS Code (Windows)
