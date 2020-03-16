@@ -35,6 +35,7 @@ https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTERSALE
 * Expanded
 * Stack
 * Практика. Компоновка интерфейса
+* Статический ListView
 
 #### Раздел 4: Навигация и передача данных
 * Простая навигация
@@ -47,3 +48,6 @@ https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTERSALE
 * Пакеты и зависимости
 * Управление версиями пакетов
 * Неопубликованные пакеты
+
+#### Раздел 6: Работа с сетью
+* Работа с HTTP
