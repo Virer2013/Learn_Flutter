@@ -1,5 +1,5 @@
 # Learn_Flutter
-Курс "Изучаем Flutter"
+Курс "Изучаем Flutter" (Курс в разработке)
 
 Ссылка на курс:
 https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTERSALE
@@ -11,6 +11,7 @@ https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTERSALE
 * Установка Flutter и Android Studio (Windows)
 * Установка Android Emulator (Windows)
 * Установка VS Code (Windows)
+* Ссылки для курса, ДЗ, обсуждения
 
 #### Раздел 2: Основы
 * Обзор папок во Flutter приложении
