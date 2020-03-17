@@ -24,33 +24,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   intl: ^0.16.1
-
-  # any - любая версия
-  # 1.2.3 - только версия 1.2.3
-  # 1.4< 1.4.5 - любая версия выше, 1.4.5
-  # >= 1.4.5 - любая версия 1.4.5 или выше
-  # <1.4.5 - любая версия ниже, чем 1.4.5
-  # <=1.4.5 - любая версия 1.4.5 или ниже
-  # ^ - диапазон всех версий гарантированно обратно совместимых с указанной версией
-
-  # intl: ^0.16.1 - эквивалентно >=0.16.1 < 0.2.0
-
-  # my_package:
-  #   git:
-  #     url: git://github.com/my_company/my_package.git
   
-  # my_new_package:
-  #   git:
-  #     url: git://github.com/my_company/my_new_package.git
-  #     path: packages/my_new_package
-
-  # my_plugin:
-  #   path: ../my_plugin/
-  
-  #  my_plugin:
-  #   path: /Users/me/my_folder/my_plugin/
-  
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
