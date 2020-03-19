@@ -37,6 +37,8 @@ https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTERSALE
 * Stack
 * Практика. Компоновка интерфейса
 * Статический ListView
+* Динамический ListView
+* Динамический ListView. Отображение заголова
 
 #### Раздел 4: Навигация и передача данных
 * Простая навигация
@@ -44,6 +46,7 @@ https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTERSALE
 * Простая передача данных между экранами
 * Передача данных при навигации по имени
 * Передача данных с onGenerateRoute
+* Возврат данных с нового экрана
 
 #### Раздел 5: Пакеты и зависимости
 * Пакеты и зависимости
@@ -52,3 +55,6 @@ https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTERSALE
 
 #### Раздел 6: Работа с сетью
 * Работа с HTTP
+* Введение в JSON
+* Ручная сериализация JSON. Создание модели
+* Ручная сериализация JSON. Отображение данных
