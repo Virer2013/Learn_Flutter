@@ -59,3 +59,7 @@ https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTERSALE
 * Ручная сериализация JSON. Создание модели
 * Ручная сериализация JSON. Отображение данных
 * Авто генерируемая сериализация JSON
+
+#### Раздел 7: Управление состоянием
+* Типы состояний. Введение
+* Vanilla (setState())
