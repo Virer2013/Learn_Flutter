@@ -63,3 +63,5 @@ https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTERSALE
 #### Раздел 7: Управление состоянием
 * Типы состояний. Введение
 * Vanilla (setState())
+* InheritedWidget
+* ScopedModel
