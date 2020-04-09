@@ -67,3 +67,4 @@ https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTERSALE
 * ScopedModel
 * Provider. Теория
 * Provider. Практика
+* ДЗ по Provider
