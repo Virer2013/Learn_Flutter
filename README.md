@@ -65,3 +65,5 @@ https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTERSALE
 * Vanilla (setState())
 * InheritedWidget
 * ScopedModel
+* Provider. Теория
+* Provider. Практика
