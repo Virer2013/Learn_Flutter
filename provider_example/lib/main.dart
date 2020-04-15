@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'package:provider/provider.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -14,28 +16,35 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: DefaultTabController(
-        length: 3,
+      home: MultiProvider(
+        providers: [
+          ChangeNotifierProvider<CountProvider>.value(value: CountProvider()),
+          FutureProvider(create: (_) async => UserProvider().loadUserData()),
+          StreamProvider(create: (_) => EventProvider().intStream(), initialData: 0),
+        ],
         child: DefaultTabController(
           length: 3,
-          child: Scaffold(
-            appBar: AppBar(
-              title: Text("Provider Demo"),
-              centerTitle: true,
-              bottom: TabBar(
-                tabs: <Widget>[
-                  Tab(icon: Icon(Icons.add)),
-                  Tab(icon: Icon(Icons.person)),
-                  Tab(icon: Icon(Icons.message)),
+          child: DefaultTabController(
+            length: 3,
+            child: Scaffold(
+              appBar: AppBar(
+                title: Text("Provider Demo"),
+                centerTitle: true,
+                bottom: TabBar(
+                  tabs: <Widget>[
+                    Tab(icon: Icon(Icons.add)),
+                    Tab(icon: Icon(Icons.person)),
+                    Tab(icon: Icon(Icons.message)),
+                  ],
+                ),
+              ),
+              body: TabBarView(
+                children: <Widget>[
+                  MyCountPage(),
+                  MyUserPage(),
+                  MyEventPage(),
                 ],
               ),
-            ),
-            body: TabBarView(
-              children: <Widget>[
-                MyCountPage(),
-                MyUserPage(),
-                MyEventPage(),
-              ],
             ),
           ),
         ),
@@ -47,6 +56,7 @@ class MyApp extends StatelessWidget {
 class MyCountPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    CountProvider _state = Provider.of<CountProvider>(context);
     return Scaffold(
       body: Center(
         child: Column(
@@ -55,19 +65,24 @@ class MyCountPage extends StatelessWidget {
             Text('ChangeNotifierProvider Example',
                 style: TextStyle(fontSize: 20)),
             SizedBox(height: 50),
-            Text('0', style: Theme.of(context).textTheme.display1),
+            Text('${_state.counterValue}',
+                style: Theme.of(context).textTheme.display1),
             ButtonBar(
               alignment: MainAxisAlignment.center,
               children: <Widget>[
                 IconButton(
                   icon: Icon(Icons.remove),
                   color: Colors.red,
-                  onPressed: () {},
+                  onPressed: () => _state._decrementCount(),
                 ),
-                IconButton(
-                  icon: Icon(Icons.add),
-                  color: Colors.green,
-                  onPressed: () {},
+                Consumer<CountProvider>(
+                  builder: (context, value, child) {
+                    return IconButton(
+                      icon: Icon(Icons.add),
+                      color: Colors.green,
+                      onPressed: () => value._incrementCount(),
+                    );
+                  },
                 ),
               ],
             ),
@@ -88,16 +103,24 @@ class MyUserPage extends StatelessWidget {
           child: Text('FutureProvider Example, users loaded from a File',
               style: TextStyle(fontSize: 17)),
         ),
-        Expanded(
-          child: ListView.builder(
-            itemCount: 10,
-            itemBuilder: (context, index) {
-              return Container(
-                  height: 50,
-                  color: Colors.grey[(index * 200) % 400],
-                  child: Center(child: Text('TEST')));
-            },
-          ),
+        Consumer<List<User>>(
+          builder: (context, List<User> users, _) {
+            return Expanded(
+              child: users == null
+                  ? Container(child: Center(child: CircularProgressIndicator()))
+                  : ListView.builder(
+                      itemCount: users.length,
+                      itemBuilder: (context, index) {
+                        return Container(
+                            height: 50,
+                            color: Colors.grey[(index * 200) % 400],
+                            child: Center(
+                                child: Text(
+                                    '${users[index].firstName} ${users[index].lastName} | ${users[index].website}')));
+                      },
+                    ),
+            );
+          },
         ),
       ],
     );
@@ -108,6 +131,7 @@ class MyUserPage extends StatelessWidget {
 class MyEventPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    var _value = Provider.of<int>(context);
     return Container(
         child: Center(
             child: Column(
@@ -115,7 +139,7 @@ class MyEventPage extends StatelessWidget {
       children: [
         Text('StreamProvider Example', style: TextStyle(fontSize: 20)),
         SizedBox(height: 50),
-        Text('0', style: Theme.of(context).textTheme.display1)
+        Text('${_value.toString()}', style: Theme.of(context).textTheme.display1)
       ],
     )));
   }
@@ -173,6 +197,7 @@ class User {
       : this.firstName = json['first_name'],
         this.lastName = json['last_name'],
         this.website = json['website'];
+  
 }
 
 // User List Model
@@ -183,4 +208,3 @@ class UserList {
   UserList.fromJson(List<dynamic> usersJson)
       : users = usersJson.map((user) => User.fromJson(user)).toList();
 }
-
