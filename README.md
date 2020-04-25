@@ -68,3 +68,8 @@ https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTERSALE
 * Provider. Теория
 * Provider. Практика
 * ДЗ по Provider
+
+#### Раздел 8: Хранение данных на устройстве
+* Работа с файлом (Чтение/Запись)
+* Плагин shared_preferences
+* Работа с SQLite
