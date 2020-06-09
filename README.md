@@ -86,7 +86,7 @@ https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTER2020MAY
 * Получение погоды по геолокации устройства
 * Исходный код
 
-### Раздел 10: BLoC
+#### Раздел 10: BLoC
 * BLoC. Теория
 * BLoC на потоках (Stream)
 * BLoC (flutter_bloc 4.0)
