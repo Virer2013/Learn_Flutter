@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:weather_example/api/weather_api.dart';
 import 'package:weather_example/models/weather_forecast_daily.dart';
@@ -7,6 +6,7 @@ import 'package:weather_example/widgets/bottom_list_view.dart';
 import 'package:weather_example/widgets/city_view.dart';
 import 'package:weather_example/widgets/detail_view.dart';
 import 'package:weather_example/widgets/temp_view.dart';
+import 'package:flutter/material.dart';
 
 class WeatherForecastScreen extends StatefulWidget {
   final locationWeather;
@@ -18,7 +18,6 @@ class WeatherForecastScreen extends StatefulWidget {
 
 class _WeatherForecastScreenState extends State<WeatherForecastScreen> {
   Future<WeatherForecast> forecastObject;
-  //String _cityName = 'London';
   String _cityName;
 
   @override
@@ -28,6 +27,10 @@ class _WeatherForecastScreenState extends State<WeatherForecastScreen> {
     if (widget.locationWeather != null) {
       forecastObject = Future.value(widget.locationWeather);
     }
+
+    // forecastObject.then((weather) {
+    //   print(weather.list[0].weather[0].main);
+    // });
   }
 
   @override
@@ -35,8 +38,9 @@ class _WeatherForecastScreenState extends State<WeatherForecastScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.black87,
-        title: Text('openweathermap.org'),
+        title: Text('Weather forecast'),
         centerTitle: true,
+        automaticallyImplyLeading: false,
         leading: IconButton(
           icon: Icon(Icons.my_location),
           onPressed: () {
@@ -57,7 +61,7 @@ class _WeatherForecastScreenState extends State<WeatherForecastScreen> {
                 setState(() {
                   _cityName = tappedName;
                   forecastObject = WeatherApi()
-                      .fetchWeatherForecast(cityName: _cityName, isCity: true);
+                      .fetchWeatherForecast(city: _cityName, isCity: true);
                 });
               }
             },
@@ -86,8 +90,8 @@ class _WeatherForecastScreenState extends State<WeatherForecastScreen> {
                 } else {
                   return Center(
                     child: Text(
-                      'City not Found.\nPlease, enter correct city',
-                      style: TextStyle(fontSize: 25.0),
+                      'City not found\nPlease, enter correct city',
+                      style: TextStyle(fontSize: 25),
                       textAlign: TextAlign.center,
                     ),
                   );

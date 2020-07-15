@@ -12,7 +12,7 @@ class Location {
       latitude = position.latitude;
       longitude = position.longitude;
     } catch (e) {
-      throw 'Something goes wrong: $e';
+      print('Something goes wrong: $e');
     }
   }
 }
