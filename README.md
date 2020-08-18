@@ -91,4 +91,6 @@ https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTER2020JULE
 * BLoC. Теория
 * BLoC на потоках (Stream)
 * BLoC (flutter_bloc 4.0)
-* BLoC. Работа с сетью
+* Flutter BLoC 4.0. Работа с сетью
+* Flutter BLoC 6.0. Работа с сетью
+* Flutter Cubit 6.0. Работа с сетью
