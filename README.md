@@ -2,7 +2,7 @@
 Курс "Изучаем Flutter" (Курс в разработке)
 
 Ссылка на курс:
-https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTER2020JULE
+https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTER_OCTOBER_2020
 
 ## Содержание
 
