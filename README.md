@@ -60,7 +60,9 @@ https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTER_OCTOBER_2020
 * SnackBar
 * AlertDialog
 * Использование жестов
+* Отправка формы
 * Исходный код
+* ДЗ по работе с виджетов Form
 
 #### Раздел 6: Пакеты и зависимости
 * Пакеты и зависимости
