@@ -39,6 +39,7 @@ https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTER_OCTOBER_2020
 * Статический ListView
 * Динамический ListView
 * Динамический ListView. Отображение заголовка
+* ДЗ по блоку "Основы компоновки UI"
 
 #### Раздел 4: Навигация и передача данных
 * Простая навигация
