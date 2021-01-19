@@ -66,7 +66,7 @@ class MyCountPage extends StatelessWidget {
                 style: TextStyle(fontSize: 20)),
             SizedBox(height: 50),
             Text('${_state.counterValue}',
-                style: Theme.of(context).textTheme.display1),
+                style: Theme.of(context).textTheme.headline4),
             ButtonBar(
               alignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -139,7 +139,7 @@ class MyEventPage extends StatelessWidget {
       children: [
         Text('StreamProvider Example', style: TextStyle(fontSize: 20)),
         SizedBox(height: 50),
-        Text('${_value.toString()}', style: Theme.of(context).textTheme.display1)
+        Text('${_value.toString()}', style: Theme.of(context).textTheme.headline4)
       ],
     )));
   }

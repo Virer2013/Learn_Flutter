@@ -55,7 +55,7 @@ class MyCountPage extends StatelessWidget {
             Text('ChangeNotifierProvider Example',
                 style: TextStyle(fontSize: 20)),
             SizedBox(height: 50),
-            Text('0', style: Theme.of(context).textTheme.display1),
+            Text('0', style: Theme.of(context).textTheme.headline4),
             ButtonBar(
               alignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -115,7 +115,7 @@ class MyEventPage extends StatelessWidget {
       children: [
         Text('StreamProvider Example', style: TextStyle(fontSize: 20)),
         SizedBox(height: 50),
-        Text('0', style: Theme.of(context).textTheme.display1)
+        Text('0', style: Theme.of(context).textTheme.headline4)
       ],
     )));
   }
