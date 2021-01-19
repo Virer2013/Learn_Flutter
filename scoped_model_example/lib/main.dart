@@ -52,7 +52,7 @@ class _AppRootWidget extends StatelessWidget {
       elevation: 4.0,
       child: Column(
         children: <Widget>[
-          Text('(Root Widget)', style: Theme.of(context).textTheme.display1),
+          Text('(Root Widget)', style: Theme.of(context).textTheme.headline4),
           SizedBox(height: 50),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -71,14 +71,14 @@ class _Counter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScopedModelDescendant<MyModelState>(
-      rebuildOnChange: false,
+      rebuildOnChange: true,
       builder: (context, child, model) => Card(
         margin: EdgeInsets.all(4.0).copyWith(bottom: 32.0),
         color: Colors.yellowAccent,
         child: Column(
           children: <Widget>[
             Text('(Child Widget)'),
-            Text('${model.counterValue}', style: Theme.of(context).textTheme.display1),
+            Text('${model.counterValue}', style: Theme.of(context).textTheme.headline4),
             ButtonBar(
               children: <Widget>[
                 IconButton(

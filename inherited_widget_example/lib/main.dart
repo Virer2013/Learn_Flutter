@@ -59,8 +59,8 @@ class AppRootWidget extends StatelessWidget {
       elevation: 4.0,
       child: Column(
         children: <Widget>[
-          Text('(Root Widget)', style: Theme.of(context).textTheme.display1),
-          Text('${rootWidgetState.counterValue}', style: Theme.of(context).textTheme.display1),
+          Text('(Root Widget)', style: Theme.of(context).textTheme.headline4),
+          Text('${rootWidgetState.counterValue}', style: Theme.of(context).textTheme.headline4),
           SizedBox(height: 50),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -85,7 +85,7 @@ class Counter extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Text('(Child Widget)'),
-          Text('${rootWidgetState.counterValue}', style: Theme.of(context).textTheme.display1),
+          Text('${rootWidgetState.counterValue}', style: Theme.of(context).textTheme.headline4),
           ButtonBar(
             children: <Widget>[
               IconButton(
