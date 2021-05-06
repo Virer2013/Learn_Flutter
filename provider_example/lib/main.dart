@@ -19,8 +19,14 @@ class MyApp extends StatelessWidget {
       home: MultiProvider(
         providers: [
           ChangeNotifierProvider<CountProvider>.value(value: CountProvider()),
-          FutureProvider(create: (_) async => UserProvider().loadUserData()),
-          StreamProvider(create: (_) => EventProvider().intStream(), initialData: 0),
+          FutureProvider<List<User>>(
+            initialData: [],
+            create: (_) async => UserProvider().loadUserData(),
+          ),
+          StreamProvider<int>(
+            initialData: 0,
+            create: (_) => EventProvider().intStream(),
+          ),
         ],
         child: DefaultTabController(
           length: 3,
@@ -106,7 +112,7 @@ class MyUserPage extends StatelessWidget {
         Consumer<List<User>>(
           builder: (context, List<User> users, _) {
             return Expanded(
-              child: users == null
+              child: users.isEmpty
                   ? Container(child: Center(child: CircularProgressIndicator()))
                   : ListView.builder(
                       itemCount: users.length,
@@ -139,7 +145,8 @@ class MyEventPage extends StatelessWidget {
       children: [
         Text('StreamProvider Example', style: TextStyle(fontSize: 20)),
         SizedBox(height: 50),
-        Text('${_value.toString()}', style: Theme.of(context).textTheme.headline4)
+        Text('${_value.toString()}',
+            style: Theme.of(context).textTheme.headline4)
       ],
     )));
   }
@@ -164,7 +171,7 @@ class CountProvider extends ChangeNotifier {
 // UserProvider (Future)
 class UserProvider {
   final String _dataPath = "assets/users.json";
-  List<User> users;
+  List<User> users = [];
 
   Future<String> loadAsset() async {
     return await Future.delayed(Duration(seconds: 2), () async {
@@ -197,7 +204,6 @@ class User {
       : this.firstName = json['first_name'],
         this.lastName = json['last_name'],
         this.website = json['website'];
-  
 }
 
 // User List Model

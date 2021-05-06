@@ -140,7 +140,7 @@ class CountProvider extends ChangeNotifier {
 // UserProvider (Future)
 class UserProvider {
   final String _dataPath = "assets/users.json";
-  List<User> users;
+  List<User> users = [];
 
   Future<String> loadAsset() async {
     return await Future.delayed(Duration(seconds: 2), () async {
