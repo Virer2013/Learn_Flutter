@@ -41,6 +41,9 @@ dependencies:
 
   # Local cache
   shared_preferences: ^2.0.5
+
+  # Bloc for state management
+  flutter_bloc: ^7.0.0
   
 dev_dependencies:
   flutter_test:
