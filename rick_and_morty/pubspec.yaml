@@ -37,6 +37,7 @@ dependencies:
   
   # Remote API
   http: ^0.13.3
+  internet_connection_checker: ^0.0.1
 
   # Local cache
   shared_preferences: ^2.0.5
