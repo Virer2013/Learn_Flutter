@@ -3,7 +3,7 @@ import 'package:form_example/model/user.dart';
 
 class UserInfoPage extends StatelessWidget {
 
-  User userInfo;
+  final User userInfo;
   UserInfoPage({this.userInfo});
   
   @override

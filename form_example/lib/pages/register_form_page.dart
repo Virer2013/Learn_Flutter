@@ -222,13 +222,14 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
               validator: _validatePassword,
             ),
             SizedBox(height: 15),
-            RaisedButton(
+            ElevatedButton(
+              child: Text('Submit Form'),
               onPressed: _submitForm,
-              color: Colors.green,
-              child: Text(
-                'Submit Form',
-                style: TextStyle(color: Colors.white),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.green,
+                textStyle: TextStyle(color: Colors.white),
               ),
+              //color: Colors.green,
             ),
           ],
         ),
@@ -287,20 +288,34 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
   }
 
   void _showMessage({String message}) {
-    _scaffoldKey.currentState.showSnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         duration: Duration(seconds: 5),
         backgroundColor: Colors.red,
         content: Text(
           message,
           style: TextStyle(
-            color: Colors.black,
+            color: Colors.white,
             fontWeight: FontWeight.w600,
             fontSize: 18.0,
           ),
         ),
       ),
     );
+    // _scaffoldKey.currentState.showSnackBar(
+    //   SnackBar(
+    //     duration: Duration(seconds: 5),
+    //     backgroundColor: Colors.red,
+    //     content: Text(
+    //       message,
+    //       style: TextStyle(
+    //         color: Colors.black,
+    //         fontWeight: FontWeight.w600,
+    //         fontSize: 18.0,
+    //       ),
+    //     ),
+    //   ),
+    // );
   }
 
   void _showDialog({String name}) {
@@ -322,7 +337,7 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
               ),
             ),
             actions: [
-              FlatButton(
+              TextButton(
                   onPressed: () {
                     Navigator.pop(context);
                     Navigator.push(
