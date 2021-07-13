@@ -1,8 +1,8 @@
 # Learn_Flutter
-Курс "Изучаем Flutter" (Курс в разработке)
+Курс "Изучаем Flutter"
 
 Ссылка на курс:
-https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTER_MAY
+https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTER_JULE
 
 ## Содержание
 
@@ -112,4 +112,43 @@ https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTER_MAY
 * Flutter BLoC 6.0. Работа с сетью
 * Flutter Cubit 6.0. Работа с сетью
 
-#### Раздел 12: Анимация (Раздел в разработке)
+#### Раздел 12: Чистая Архитектура (The Clean Architecture)
+* Что будем проектировать?
+* Чистая Архитектура. Введение.
+* Структура приложения
+* Уровень домена: Entity и Equatable
+* Уровень домена: Repository
+* Уровень домена: UseCases
+* Уровень данных: Обзор
+* Уровень данных: Models
+* Уровень данных: Remote data source
+* Уровень данных: Local data source
+* Уровень данных: Repository
+* Уровень представления: Обзор
+* Уровень представления: BLoC
+* Уровень представления: Cubit
+* Внедрение зависимостей (Dependency Injection)
+* Уровень представления: Отображение списка персонажей
+* Уровень представления: Детальная информация о персонаже
+* Уровень представления: Поиск персонажа
+* Заключение и ДЗ
+
+#### Раздел 13: Работа с Null Safety
+* Что такое Null Safety?
+* Основные принципы Null Safety
+* Иерархия типов
+* Flow Analysis: Promotion & Definite Assignment
+* Null-aware операторы
+* Каскадный null-aware оператор
+* Модификатор late
+* Работа с коллекциями
+* Работа с параметрами класса
+* Миграция на Null Safety
+
+#### Раздел 14: Анимация (Раздел в разработке)
+* Введение. Пользовательская анимация
+* AnimationController и Animation
+* Контроль за ходом анимации
+* Анимация на основе кривых (Curves)
+* Одновременная анимация
+* Поэтапная анимация
