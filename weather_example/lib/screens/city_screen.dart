@@ -43,7 +43,7 @@ class _CityScreenState extends State<CityScreen> {
                   ),
                 ),
               ),
-              FlatButton(
+              TextButton(
                 child: Text(
                   'Get Weather',
                   style: TextStyle(fontSize: 30.0),

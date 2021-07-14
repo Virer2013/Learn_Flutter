@@ -15,7 +15,7 @@ class WeatherForecast {
     message = json['message'];
     cnt = json['cnt'];
     if (json['list'] != null) {
-      list = new List<WeatherList>();
+      list = [];
       json['list'].forEach((v) {
         list.add(new WeatherList.fromJson(v));
       });
@@ -83,8 +83,8 @@ class Coord {
   Coord({this.lon, this.lat});
 
   Coord.fromJson(Map<String, dynamic> json) {
-    lon = json['lon'];
-    lat = json['lat'];
+    lon = json['lon'].toDouble();
+    lat = json['lat'].toDouble();
   }
 
   Map<String, dynamic> toJson() {
@@ -134,7 +134,7 @@ class WeatherList {
     pressure = json['pressure'];
     humidity = json['humidity'];
     if (json['weather'] != null) {
-      weather = new List<Weather>();
+      weather = [];
       json['weather'].forEach((v) {
         weather.add(new Weather.fromJson(v));
       });

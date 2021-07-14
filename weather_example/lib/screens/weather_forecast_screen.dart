@@ -1,4 +1,3 @@
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:weather_example/api/weather_api.dart';
 import 'package:weather_example/models/weather_forecast_daily.dart';
 import 'package:weather_example/screens/city_screen.dart';
