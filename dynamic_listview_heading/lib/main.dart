@@ -40,7 +40,7 @@ Widget _myListView() {
       if (item is HeadingItem) {
         return ListTile(
           title:
-              Text(item.heading, style: Theme.of(context).textTheme.headline),
+              Text(item.heading, style: Theme.of(context).textTheme.headline5),
         );
       } else if (item is MessageItem) {
         return ListTile(
@@ -50,7 +50,10 @@ Widget _myListView() {
           trailing: Icon(Icons.keyboard_arrow_right),
         );
       }
-      return null;
+      // До Null Safety (Dart < 2.12) можно было возвращать null, 
+      // после Dart 2.12 следует возвращать виджет, а не null;
+      // Так как изменилась иерархия типов в языке Dart >= 2.12.
+      return Container(); // null;
     },
   );
 }

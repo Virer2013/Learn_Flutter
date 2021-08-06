@@ -4,7 +4,7 @@ import 'package:form_example/model/user.dart';
 class UserInfoPage extends StatelessWidget {
 
   final User userInfo;
-  UserInfoPage({this.userInfo});
+  UserInfoPage({required this.userInfo});
   
   @override
   Widget build(BuildContext context) {

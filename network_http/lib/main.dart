@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
 Future<http.Response> getData() async {
   const url = 'https://about.google/static/data/locations.json';
-  return await http.get(url);
+  return await http.get(Uri.parse(url));
 }
 
 void loadData() {

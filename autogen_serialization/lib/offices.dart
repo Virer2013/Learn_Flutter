@@ -8,7 +8,7 @@ part 'offices.g.dart';
 @JsonSerializable()
 class OfficesList {
   List<Office> offices;
-  OfficesList({this.offices});
+  OfficesList({required this.offices});
 
   factory OfficesList.fromJson(Map<String, dynamic> json) => _$OfficesListFromJson(json);
 
@@ -23,7 +23,7 @@ class Office {
   final String address;
   final String image;
 
-  Office({this.name, this.address, this.image});
+  Office({required this.name, required this.address, required this.image});
 
   factory Office.fromJson(Map<String, dynamic> json) => _$OfficeFromJson(json);
 
@@ -32,7 +32,7 @@ class Office {
 
 Future<OfficesList> getOfficesList() async {
   const url = 'https://about.google/static/data/locations.json';
-  final response = await http.get(url);
+  final response = await http.get(Uri.parse(url));
 
   if(response.statusCode == 200) {
     return OfficesList.fromJson(json.decode(response.body));

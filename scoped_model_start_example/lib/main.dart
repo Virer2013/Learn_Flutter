@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
@@ -48,7 +48,7 @@ class _AppRootWidget extends StatelessWidget {
       elevation: 4.0,
       child: Column(
         children: <Widget>[
-          Text('(Root Widget)', style: Theme.of(context).textTheme.display1),
+          Text('(Root Widget)', style: Theme.of(context).textTheme.headline4),
           SizedBox(height: 50),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -72,7 +72,7 @@ class _Counter extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Text('(Child Widget)'),
-          Text('0', style: Theme.of(context).textTheme.display1),
+          Text('0', style: Theme.of(context).textTheme.headline4),
           ButtonBar(
             children: <Widget>[
               IconButton(

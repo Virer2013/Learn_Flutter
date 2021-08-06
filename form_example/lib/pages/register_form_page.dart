@@ -22,7 +22,7 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
   final _confirmPassController = TextEditingController();
 
   List<String> _countries = ['Russia', 'Ukraine', 'Germany', 'France'];
-  String _selectedCountry;
+  String _selectedCountry = 'Russia';
 
   final _nameFocus = FocusNode();
   final _phoneFocus = FocusNode();
@@ -93,7 +93,7 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
                 ),
               ),
               validator: _validateName,
-              onSaved: (value) => newUser.name = value,
+              onSaved: (value) => newUser.name = value!,
             ),
             SizedBox(height: 10),
             TextFormField(
@@ -131,10 +131,10 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
                 FilteringTextInputFormatter(RegExp(r'^[()\d -]{1,15}$'),
                     allow: true),
               ],
-              validator: (value) => _validatePhoneNumber(value)
+              validator: (value) => _validatePhoneNumber(value!)
                   ? null
                   : 'Phone number must be entered as (###)###-####',
-              onSaved: (value) => newUser.phone = value,
+              onSaved: (value) => newUser.phone = value!,
             ),
             SizedBox(height: 10),
             TextFormField(
@@ -145,8 +145,8 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
                 icon: Icon(Icons.mail),
               ),
               keyboardType: TextInputType.emailAddress,
-              //validator: _validateEmail,
-              onSaved: (value) => newUser.email = value,
+              // validator: _validateEmail,
+              onSaved: (value) => newUser.email = value!,
             ),
             SizedBox(height: 10),
             DropdownButtonFormField(
@@ -163,7 +163,7 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
               onChanged: (country) {
                 print(country);
                 setState(() {
-                  _selectedCountry = country;
+                  _selectedCountry = country as String;
                   newUser.country = country;
                 });
               },
@@ -185,7 +185,7 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
               inputFormatters: [
                 LengthLimitingTextInputFormatter(100),
               ],
-              onSaved: (value) => newUser.story = value,
+              onSaved: (value) => newUser.story = value!,
             ),
             SizedBox(height: 10),
             TextFormField(
@@ -238,8 +238,8 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
   }
 
   void _submitForm() {
-    if (_formKey.currentState.validate()) {
-      _formKey.currentState.save();
+    if (_formKey.currentState!.validate()) {
+      _formKey.currentState!.save();
       _showDialog(name: _nameController.text);
       print('Name: ${_nameController.text}');
       print('Phone: ${_phoneController.text}');
@@ -251,9 +251,9 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
     }
   }
 
-  String _validateName(String value) {
+  String? _validateName(String? value) {
     final _nameExp = RegExp(r'^[A-Za-z ]+$');
-    if (value.isEmpty) {
+    if (value == null) {
       return 'Name is reqired.';
     } else if (!_nameExp.hasMatch(value)) {
       return 'Please enter alphabetical characters.';
@@ -267,8 +267,8 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
     return _phoneExp.hasMatch(input);
   }
 
-  String _validateEmail(String value) {
-    if (value.isEmpty) {
+  String? _validateEmail(String? value) {
+    if (value == null) {
       return 'Email cannot be empty';
     } else if (!_emailController.text.contains('@')) {
       return 'Invalid email address';
@@ -277,7 +277,7 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
     }
   }
 
-  String _validatePassword(String value) {
+  String? _validatePassword(String? value) {
     if (_passController.text.length != 8) {
       return '8 character required for password';
     } else if (_confirmPassController.text != _passController.text) {
@@ -287,10 +287,10 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
     }
   }
 
-  void _showMessage({String message}) {
+  void _showMessage({required String message}) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        duration: Duration(seconds: 5),
+        duration: Duration(seconds: 1),
         backgroundColor: Colors.red,
         content: Text(
           message,
@@ -302,6 +302,7 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
         ),
       ),
     );
+    // До Flutter 2.0
     // _scaffoldKey.currentState.showSnackBar(
     //   SnackBar(
     //     duration: Duration(seconds: 5),
@@ -318,7 +319,7 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
     // );
   }
 
-  void _showDialog({String name}) {
+  void _showDialog({required String name}) {
     showDialog(
         context: context,
         builder: (context) {

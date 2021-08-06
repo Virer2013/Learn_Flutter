@@ -2,7 +2,7 @@
 Курс "Изучаем Flutter"
 
 Ссылка на курс:
-https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTER_JULE
+https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTER_AUGUST
 
 ## Содержание
 

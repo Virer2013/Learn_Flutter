@@ -10,8 +10,8 @@ class MyFirstApp extends StatefulWidget {
 }
 
 class _MyFirstAppState extends State<MyFirstApp> {
-  bool _loading;
-  double _progressValue;
+  late bool _loading;
+  late double _progressValue;
 
   @override
   void initState() {

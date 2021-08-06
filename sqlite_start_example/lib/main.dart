@@ -34,14 +34,14 @@ class _StudentPageState extends State<StudentPage> {
         children: <Widget>[
           Form(
             key: _formStateKey,
-            autovalidate: true,
+            autovalidateMode: AutovalidateMode.always,
             child: Column(
               children: <Widget>[
                 Padding(
                   padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
                   child: TextFormField(
                     validator: (value) {
-                      if (value.isEmpty) {
+                      if (value == null) {
                         return 'Please Enter Student Name';
                       }
                       if (value.trim() == "")
@@ -75,23 +75,24 @@ class _StudentPageState extends State<StudentPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              RaisedButton(
-                color: Colors.green,
-                child: Text(
-                  'ADD',
-                  style: TextStyle(color: Colors.white),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.green,
+                  textStyle: TextStyle(color: Colors.white),
                 ),
+                // color: Colors.green,
+                child: Text('ADD'),
                 onPressed: () {},
               ),
               Padding(
                 padding: EdgeInsets.all(10),
               ),
-              RaisedButton(
-                color: Colors.red,
-                child: Text(
-                  'CLEAR',
-                  style: TextStyle(color: Colors.white),
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.red,
+                  textStyle: TextStyle(color: Colors.white),
                 ),
+                child: Text('CLEAR'),
                 onPressed: () {},
               ),
             ],

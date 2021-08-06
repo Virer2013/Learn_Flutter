@@ -4,14 +4,22 @@ void main() {
   runApp(MaterialApp(
     home: FirstHome(),
     onGenerateRoute: (settings) {
-      switch(settings.name) {
+      switch (settings.name) {
         case '/':
-        return MaterialPageRoute(builder: (context) => FirstHome());
-        break;
+          return MaterialPageRoute(builder: (context) => FirstHome());
+
         case '/second':
-        User user = settings.arguments;
-        return  MaterialPageRoute(builder: (context) => SecondHome(user: user));
-        break;
+          final user = settings.arguments as User;
+          return MaterialPageRoute(
+              builder: (context) => SecondHome(user: user));
+
+        default:
+          return MaterialPageRoute(
+            builder: (_) => Scaffold(
+              body:
+                  Center(child: Text('No route defined for ${settings.name}')),
+            ),
+          );
       }
     },
   ));
@@ -26,8 +34,11 @@ class FirstHome extends StatelessWidget {
         centerTitle: true,
       ),
       body: Center(
-        child: RaisedButton(
-          onPressed: () {},
+        child: ElevatedButton(
+          onPressed: () {
+            User user = User(name: 'Konstantin', age: 34);
+            Navigator.pushNamed(context, '/second', arguments: user);
+          },
           child: Text('Second Home'),
         ),
       ),
@@ -35,25 +46,10 @@ class FirstHome extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: RaisedButton(
-        onPressed: () {
-          User user = User(name: 'Konstantin', age: 34);
-          Route route = MaterialPageRoute(builder: (context) => SecondHome(user: user));
-          Navigator.push(context, route);
-        },
-        child: Text('Move to Page 2'),
-      ),
-    );
-  }
-}
-
 class SecondHome extends StatelessWidget {
   final User user;
-  SecondHome({this.user});
+  SecondHome({required this.user});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,7 +58,7 @@ class SecondHome extends StatelessWidget {
         centerTitle: true,
       ),
       body: Center(
-        child: RaisedButton(
+        child: ElevatedButton(
           onPressed: () {
             Navigator.pop(context);
           },
@@ -77,5 +73,5 @@ class User {
   final String name;
   final int age;
 
-  User({this.name, this.age});
+  User({required this.name, required this.age});
 }

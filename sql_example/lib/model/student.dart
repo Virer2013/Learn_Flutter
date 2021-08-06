@@ -1,6 +1,6 @@
 class Student {
-  int id;
-  String name;
+  int? id;
+  late String name;
 
   Student(this.id, this.name);
 

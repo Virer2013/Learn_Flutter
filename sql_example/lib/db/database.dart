@@ -9,26 +9,26 @@ class DBProvider {
   DBProvider._();
   static final DBProvider db = DBProvider._();
 
-  static Database _database;
+  static late Database _database;
 
   String studentsTable = 'Students';
   String columnId = 'id';
   String columnName = 'name';
 
   Future<Database> get database async {
-    if(_database != null) return _database;
+    //if (_database != null) return _database;
 
     _database = await _initDB();
     return _database;
   }
-  
+
   Future<Database> _initDB() async {
     Directory dir = await getApplicationDocumentsDirectory();
     String path = dir.path + 'Student.db';
     return await openDatabase(path, version: 1, onCreate: _createDB);
   }
 
-  // Student 
+  // Student
   // Id | Name
   // 0    ..
   // 1    ..
@@ -42,7 +42,8 @@ class DBProvider {
   // READ
   Future<List<Student>> getStudents() async {
     Database db = await this.database;
-    final List<Map<String, dynamic>> studentsMapList = await db.query(studentsTable);
+    final List<Map<String, dynamic>> studentsMapList =
+        await db.query(studentsTable);
     final List<Student> studentsList = [];
     studentsMapList.forEach((studentMap) {
       studentsList.add(Student.fromMap(studentMap));
@@ -62,7 +63,7 @@ class DBProvider {
   Future<int> updateStudent(Student student) async {
     Database db = await this.database;
     return await db.update(
-      studentsTable, 
+      studentsTable,
       student.toMap(),
       where: '$columnId = ?',
       whereArgs: [student.id],
@@ -70,7 +71,7 @@ class DBProvider {
   }
 
   // DELETE
-  Future<int> deleteStudent(int id) async {
+  Future<int> deleteStudent(int? id) async {
     Database db = await this.database;
     return await db.delete(
       studentsTable,

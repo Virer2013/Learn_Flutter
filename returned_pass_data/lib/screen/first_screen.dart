@@ -27,7 +27,7 @@ class _FirstScreenState extends State<FirstScreen> {
                 style: TextStyle(fontSize: 24),
               ),
             ),
-            RaisedButton(
+            ElevatedButton(
               child: Text(
                 'Go to second screen',
                 style: TextStyle(fontSize: 24),

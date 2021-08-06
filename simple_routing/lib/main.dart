@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: RaisedButton(
+      child: ElevatedButton(
         onPressed: () {
           Route route = MaterialPageRoute(builder: (context) => Page2());
           Navigator.push(context, route);
@@ -41,7 +41,7 @@ class Page2 extends StatelessWidget {
         centerTitle: true,
       ),
       body: Center(
-        child: RaisedButton(
+        child: ElevatedButton(
           onPressed: () {
             Navigator.pop(context);
           },

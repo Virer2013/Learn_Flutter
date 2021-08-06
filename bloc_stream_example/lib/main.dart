@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: StreamBuilder(
           stream: _bloc.outputStateStream,
           initialData: Colors.red,
-          builder: (context, snapshot) {
+          builder: (context, AsyncSnapshot<Color> snapshot) {
             return AnimatedContainer(
               height: 100,
               width: 100,

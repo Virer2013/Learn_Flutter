@@ -27,7 +27,7 @@ class _SecondScreenState extends State<SecondScreen> {
               ),
             ),
           ),
-          RaisedButton(
+          ElevatedButton(
             child: Text(
               'Send text back',
               style: TextStyle(fontSize: 24),

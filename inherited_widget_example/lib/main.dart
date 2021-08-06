@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
 class AppRootWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final rootWidgetState = MyInheritedWidget.of(context).myState;
+    final rootWidgetState = MyInheritedWidget.of(context)!.myState;
     return Card(
       elevation: 4.0,
       child: Column(
@@ -78,7 +78,7 @@ class AppRootWidget extends StatelessWidget {
 class Counter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final rootWidgetState = MyInheritedWidget.of(context).myState;
+    final rootWidgetState = MyInheritedWidget.of(context)!.myState;
     return Card(
       margin: EdgeInsets.all(4.0).copyWith(bottom: 32.0),
       color: Colors.yellowAccent,
@@ -109,7 +109,7 @@ class Counter extends StatelessWidget {
 class MyInheritedWidget extends InheritedWidget {
   final _MyHomePageState myState;
 
-  MyInheritedWidget({Key key, Widget child, @required this.myState})
+  MyInheritedWidget({Key? key, required Widget child, required this.myState})
       : super(key: key, child: child);
 
   @override
@@ -117,7 +117,7 @@ class MyInheritedWidget extends InheritedWidget {
     return this.myState.counterValue != oldWidget.myState.counterValue;
   }
 
-  static MyInheritedWidget of(BuildContext context) {
+  static MyInheritedWidget? of(BuildContext context) {
     return context.dependOnInheritedWidgetOfExactType();
   }
 }

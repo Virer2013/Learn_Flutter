@@ -33,7 +33,7 @@ class _SharedPrefereceExampleState extends State<SharedPrefereceExample> {
               TableRow(children: <Widget>[
                 Text('Number Preference'),
                 Text('0'),
-                RaisedButton(
+                ElevatedButton(
                   child: Text('Increment'),
                   onPressed: () {},
                 ),
@@ -41,14 +41,14 @@ class _SharedPrefereceExampleState extends State<SharedPrefereceExample> {
               TableRow(children: <Widget>[
                 Text('Boolean Preference'),
                 Text('FALSE'),
-                RaisedButton(
+                ElevatedButton(
                   child: Text('Toogle'),
                   onPressed: () {},
                 ),
               ]),
             ],
           ),
-          RaisedButton(
+          ElevatedButton(
             child: Text('Reset Data'),
             onPressed: () {},
           ),

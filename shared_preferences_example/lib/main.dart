@@ -21,7 +21,7 @@ class SharedPrefereceExample extends StatefulWidget {
 
 class _SharedPrefereceExampleState extends State<SharedPrefereceExample> {
 
-  SharedPreferences _prefs;
+  late SharedPreferences _prefs;
 
   static const String kNumberPrefKey = 'number_pref';
   static const String kBoolPrefKey = 'bool_pref';
@@ -55,7 +55,7 @@ class _SharedPrefereceExampleState extends State<SharedPrefereceExample> {
               TableRow(children: <Widget>[
                 Text('Number Preference'),
                 Text('${this._numberPref}'),
-                RaisedButton(
+                ElevatedButton(
                   child: Text('Increment'),
                   onPressed: () => this._setNumberPref(this._numberPref + 1),
                 ),
@@ -63,14 +63,14 @@ class _SharedPrefereceExampleState extends State<SharedPrefereceExample> {
               TableRow(children: <Widget>[
                 Text('Boolean Preference'),
                 Text('${this._boolPref}'),
-                RaisedButton(
+                ElevatedButton(
                   child: Text('Toogle'),
                   onPressed: () => this._setBoolPref(!this._boolPref),
                 ),
               ]),
             ],
           ),
-          RaisedButton(
+          ElevatedButton(
             child: Text('Reset Data'),
             onPressed: () => this._resetDataPref(),
           ),

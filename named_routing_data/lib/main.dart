@@ -19,8 +19,11 @@ class FirstHome extends StatelessWidget {
         centerTitle: true,
       ),
       body: Center(
-        child: RaisedButton(
-          onPressed: () {},
+        child: ElevatedButton(
+          onPressed: () {
+            User user = User(name: 'Konstantin', age: 34);
+            Navigator.pushNamed(context, '/second', arguments: user);
+          },
           child: Text('Second Home'),
         ),
       ),
@@ -28,35 +31,20 @@ class FirstHome extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: RaisedButton(
-        onPressed: () {
-          User user = User(name: 'Konstantin', age: 34);
-          Navigator.pushNamed(context, '/second', arguments: user);
-        },
-        child: Text('Move to Page 2'),
-      ),
-    );
-  }
-}
-
 class SecondHome extends StatelessWidget {
-  User user;
+  late final User user;
 
   @override
   Widget build(BuildContext context) {
-    RouteSettings settings = ModalRoute.of(context).settings;
-    user = settings.arguments;
+    RouteSettings settings = ModalRoute.of(context)!.settings;
+    user = settings.arguments as User;
     return Scaffold(
       appBar: AppBar(
         title: Text('${this.user.name} - ${this.user.age}'),
         centerTitle: true,
       ),
       body: Center(
-        child: RaisedButton(
+        child: ElevatedButton(
           onPressed: () {
             Navigator.pop(context);
           },
@@ -71,5 +59,5 @@ class User {
   final String name;
   final int age;
 
-  User({this.name, this.age});
+  User({required this.name, required this.age});
 }

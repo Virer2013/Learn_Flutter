@@ -24,10 +24,10 @@ class _StudentPageState extends State<StudentPage> {
   final GlobalKey<FormState> _formStateKey = GlobalKey<FormState>();
   final _studentNameController = TextEditingController();
 
-  Future<List<Student>> _studentsList;
-  String _studentName;
+  late Future<List<Student>> _studentsList;
+  late String _studentName;
   bool isUpdate = false;
-  int studentIdForUpdate;
+  int? studentIdForUpdate;
 
   @override
   void initState() {
@@ -53,14 +53,14 @@ class _StudentPageState extends State<StudentPage> {
         children: <Widget>[
           Form(
             key: _formStateKey,
-            autovalidate: true,
+            autovalidateMode: AutovalidateMode.always, 
             child: Column(
               children: <Widget>[
                 Padding(
                   padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
                   child: TextFormField(
                     validator: (value) {
-                      if (value.isEmpty) {
+                      if (value == null) {
                         return 'Please Enter Student Name';
                       }
                       if (value.trim() == "")
@@ -68,7 +68,7 @@ class _StudentPageState extends State<StudentPage> {
                       return null;
                     },
                     onSaved: (value) {
-                      _studentName = value;
+                      _studentName = value!;
                     },
                     controller: _studentNameController,
                     decoration: InputDecoration(
@@ -96,47 +96,54 @@ class _StudentPageState extends State<StudentPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              RaisedButton(
-                color: Colors.green,
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.green,
+                  textStyle: TextStyle(color: Colors.white),
+                ),
                 child: Text(
                   (isUpdate ? 'UPDATE' : 'ADD'),
-                  style: TextStyle(color: Colors.white),
                 ),
                 onPressed: () {
-                  if(isUpdate) {
-                    if(_formStateKey.currentState.validate()) {
-                      _formStateKey.currentState.save();
-                      DBProvider.db.updateStudent(Student(studentIdForUpdate, _studentName))
-                      .then((data) {
+                  if (isUpdate) {
+                    if (_formStateKey.currentState!.validate()) {
+                      _formStateKey.currentState!.save();
+                      DBProvider.db
+                          .updateStudent(
+                              Student(studentIdForUpdate!, _studentName))
+                          .then((data) {
                         setState(() {
                           isUpdate = false;
                         });
                       });
-                    } 
-                } else {
-                      if(_formStateKey.currentState.validate()) {
-                        _formStateKey.currentState.save();
-                        DBProvider.db.insertStudent(Student(null, _studentName));
-                      }
                     }
-                    _studentNameController.text = '';
-                    updateStudentList();
-                  },
+                  } else {
+                    if (_formStateKey.currentState!.validate()) {
+                      _formStateKey.currentState!.save();
+                      // DBProvider.db.insertStudent(Student(null, _studentName));
+                      DBProvider.db.insertStudent(Student(null, _studentName));
+                    }
+                  }
+                  _studentNameController.text = '';
+                  updateStudentList();
+                },
               ),
               Padding(
                 padding: EdgeInsets.all(10),
               ),
-              RaisedButton(
-                color: Colors.red,
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.red,
+                  textStyle: TextStyle(color: Colors.white),
+                ),
                 child: Text(
                   (isUpdate ? 'CANCEL UPDATE' : 'CLEAR'),
-                  style: TextStyle(color: Colors.white),
                 ),
                 onPressed: () {
                   _studentNameController.text = '';
                   setState(() {
                     isUpdate = false;
-                    studentIdForUpdate = null;
+                    studentIdForUpdate = null; // null;
                   });
                 },
               ),
@@ -149,10 +156,10 @@ class _StudentPageState extends State<StudentPage> {
             child: FutureBuilder(
               future: _studentsList,
               builder: (context, snapshot) {
-                if(snapshot.hasData) {
-                  return generateList(snapshot.data);
+                if (snapshot.hasData) {
+                  return generateList(snapshot.data as List<Student>);
                 }
-                if(snapshot.data == null || snapshot.data.length == 0) {
+                if (snapshot.data == null || (snapshot.data as List<Student>).length == 0) {
                   return Text('No Data Found');
                 }
                 return CircularProgressIndicator();
@@ -165,49 +172,43 @@ class _StudentPageState extends State<StudentPage> {
   }
 
   SingleChildScrollView generateList(List<Student> students) {
-  return SingleChildScrollView(
-    scrollDirection: Axis.vertical,
-    child: SizedBox(
-      width: MediaQuery.of(context).size.width,
-      child: DataTable(
-        columns: [
-          DataColumn(
-            label: Text('NAME'),
-          ),
-          DataColumn(
-            label: Text('DELETE'),
-          ),
-        ],
-        rows: students.map(
-          (student) => DataRow(
-            cells: [
-              DataCell(
-                Text(student.name),
-                onTap: () {
-                  setState(() {
-                    isUpdate = true;
-                    studentIdForUpdate = student.id;
-                  });
-                  _studentNameController.text = student.name;
-                }
-              ),
-              DataCell(
-                IconButton(
-                  icon: Icon(Icons.delete),
-                  onPressed: () {
-                    DBProvider.db.deleteStudent(student.id);
-                    updateStudentList();
-                  },
-                ),
-              ),
-            ]
-          ),
-        ).toList(),
+    return SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        child: DataTable(
+          columns: [
+            DataColumn(
+              label: Text('NAME'),
+            ),
+            DataColumn(
+              label: Text('DELETE'),
+            ),
+          ],
+          rows: students
+              .map(
+                (student) => DataRow(cells: [
+                  DataCell(Text(student.name), onTap: () {
+                    setState(() {
+                      isUpdate = true;
+                      studentIdForUpdate = student.id;
+                    });
+                    _studentNameController.text = student.name;
+                  }),
+                  DataCell(
+                    IconButton(
+                      icon: Icon(Icons.delete),
+                      onPressed: () {
+                        DBProvider.db.deleteStudent(student.id);
+                        updateStudentList();
+                      },
+                    ),
+                  ),
+                ]),
+              )
+              .toList(),
+        ),
       ),
-    ),
-  );
+    );
+  }
 }
-
-}
-
-

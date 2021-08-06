@@ -15,7 +15,7 @@ class FirstHome extends StatelessWidget {
         centerTitle: true,
       ),
       body: Center(
-        child: RaisedButton(
+        child: ElevatedButton(
           onPressed: () {},
           child: Text('Second Home'),
         ),
@@ -28,7 +28,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: RaisedButton(
+      child: ElevatedButton(
         onPressed: () {
           User user = User(name: 'Konstantin', age: 34);
           Route route = MaterialPageRoute(builder: (context) => SecondHome(user: user));
@@ -42,7 +42,8 @@ class HomePage extends StatelessWidget {
 
 class SecondHome extends StatelessWidget {
   final User user;
-  SecondHome({this.user});
+  SecondHome({required this.user});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,7 +52,7 @@ class SecondHome extends StatelessWidget {
         centerTitle: true,
       ),
       body: Center(
-        child: RaisedButton(
+        child: ElevatedButton(
           onPressed: () {
             Navigator.pop(context);
           },
@@ -66,5 +67,5 @@ class User {
   final String name;
   final int age;
 
-  User({this.name, this.age});
+  User({required this.name, required this.age});
 }
