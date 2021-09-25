@@ -2,7 +2,7 @@
 Курс "Изучаем Flutter"
 
 Ссылка на курс:
-https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTER_AUGUST
+https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTER_09
 
 ## Содержание
 
@@ -145,7 +145,15 @@ https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTER_AUGUST
 * Работа с параметрами класса
 * Миграция на Null Safety
 
-#### Раздел 14: Анимация (Раздел в разработке)
+#### Раздел 14: Работа с Веб-страницами
+* Работа с WebView
+* Управление веб-страницами в WebView
+* Отслеживание изменений в WebView
+* Внедрение Javascript в WebView
+* Работа с локальными Веб-страницами, CSS и JS
+* Обмен данными между WebView и Flutter
+
+#### Раздел 15: Анимация (Раздел в разработке)
 * Введение. Пользовательская анимация
 * AnimationController и Animation
 * Контроль за ходом анимации
