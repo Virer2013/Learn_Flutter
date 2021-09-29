@@ -1,4 +1,6 @@
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 // import 'package:webview_flutter/webview_flutter.dart';
 import 'package:webview_flutter_plus/webview_flutter_plus.dart';
@@ -24,6 +26,34 @@ class _WebViewLocalPageState extends State<WebViewLocalPage> {
         onWebViewCreated: (controller) {
           _webController = controller;
           // loadLocalHTML();
+        },
+        javascriptChannels: {
+          JavascriptChannel(
+            name: 'MyJSChannel',
+            onMessageReceived: (message) async {
+              log('Javascript: ${message.message}');
+              await showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  content: Text(
+                    message.message,
+                    style: const TextStyle(fontSize: 35),
+                  ),
+                  actions: [
+                    TextButton(
+                      onPressed: () {
+                        _webController.webViewController.evaluateJavascript(
+                          'sendOK()',
+                        );
+                        Navigator.pop(context);
+                      },
+                      child: const Text('Хорошо'),
+                    )
+                  ],
+                ),
+              );
+            },
+          ),
         },
       ),
     );
