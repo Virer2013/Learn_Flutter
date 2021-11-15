@@ -1,0 +1,17 @@
+
+include: package:flutter_lints/flutter.yaml
+
+linter:
+  rules:
+    avoid_print: false  
+    prefer_const_constructors: false
+    
+analyzer:
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+  errors:
+    invalid_annotation_target: ignore
+
+# Additional information about this file can be found at
+# https://dart.dev/guides/language/analysis-options
