@@ -2,7 +2,7 @@
 Курс "Изучаем Flutter"
 
 Ссылка на курс:
-https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTER_09
+https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTER_112021
 
 ## Содержание
 
@@ -153,7 +153,11 @@ https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTER_09
 * Работа с локальными Веб-страницами, CSS и JS
 * Обмен данными между WebView и Flutter
 
-#### Раздел 15: Анимация (Раздел в разработке)
+#### Раздел 15: Генерация кода
+* Работа с пакетом Freezed
+* Работа с BLoC и Freezed
+
+#### Раздел 16: Анимация (Раздел в разработке)
 * Введение. Пользовательская анимация
 * AnimationController и Animation
 * Контроль за ходом анимации
