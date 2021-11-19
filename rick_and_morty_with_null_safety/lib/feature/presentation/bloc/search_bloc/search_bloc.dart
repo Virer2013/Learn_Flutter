@@ -45,19 +45,7 @@ class PersonSearchBloc extends Bloc<PersonSearchEvent, PersonSearchState> {
 // class PersonSearchBloc extends Bloc<PersonSearchEvent, PersonSearchState> {
 //   final SearchPerson searchPerson;
 
-//   PersonSearchBloc({required this.searchPerson}) : super(PersonSearchEmpty()) {
-//     on<SearchPersons>(_onEvent);
-//   }
-
-//   FutureOr<void> _onEvent(
-//       SearchPersons event, Emitter<PersonSearchState> emit) async {
-//     emit(PersonSearchLoading());
-//     final failureOrPerson =
-//         await searchPerson(SearchPersonParams(query: event.personQuery));
-//     emit(failureOrPerson.fold(
-//         (failure) => PersonSearchError(message: _mapFailureToMessage(failure)),
-//         (person) => PersonSearchLoaded(persons: person)));
-//   }
+//   PersonSearchBloc({required this.searchPerson}) : super(PersonSearchEmpty());
 
 //   @override
 //   Stream<PersonSearchState> mapEventToState(PersonSearchEvent event) async* {
