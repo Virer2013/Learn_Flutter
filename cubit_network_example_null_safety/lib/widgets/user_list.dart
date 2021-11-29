@@ -1,13 +1,13 @@
 // import 'package:bloc_network_example/bloc/user_bloc.dart';
-import 'package:cubit_network_example/cubit/user_state.dart';
-import 'package:cubit_network_example/cubit/user_cubit.dart';
+import 'package:cubit_network_example/bloc/user_bloc.dart';
+import 'package:cubit_network_example/bloc/user_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class UserList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UserCubit, UserState>(
+    return BlocBuilder<UserBloc, UserState>(
       builder: (context, state) {
         if (state is UserEmptyState) {
           return Center(
@@ -66,7 +66,7 @@ class UserList extends StatelessWidget {
             ),
           );
         }
-        return Container();
+        return SizedBox.shrink();
       },
     );
   }

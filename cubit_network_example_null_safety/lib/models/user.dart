@@ -1,8 +1,8 @@
 class User {
-  int id;
-  String name;
-  String? email;
-  String? phone;
+  final int id;
+  final String name;
+  final String? email;
+  final String? phone;
 
   User({required this.id, required this.name, this.email, this.phone});
 
@@ -10,8 +10,8 @@ class User {
     return User(
       id: json['id'],
       name: json['name'],
-      email: json['email'] ?? 'No email',
-      phone: json['phone'] ?? 'No phone',
+      email: json['email'] ?? '',
+      phone: json['phone'] ?? '',
     );
   }
 }

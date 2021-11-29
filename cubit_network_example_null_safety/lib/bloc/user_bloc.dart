@@ -4,7 +4,6 @@ import 'package:cubit_network_example/models/user.dart';
 import 'package:cubit_network_example/services/user_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-// BLoC 8.0.0
 class UserBloc extends Bloc<UserEvent, UserState> {
   final UsersRepository usersRepository;
 
@@ -23,13 +22,6 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     });
   }
 }
-
-// BLoC 7.2
-// class UserBloc extends Bloc<UserEvent, UserState> {
-//   final UsersRepository usersRepository;
-
-//   UserBloc(this.usersRepository) : super(UserEmptyState());
-
 //     @override
 //   Stream<UserState> mapEventToState(UserEvent event) async* {
 //     if (event is UserLoadEvent) {
@@ -47,7 +39,6 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
 // }
 
-// BLoC 4.0
 // class UserBloc extends Bloc<UserEvent, UserState> {
 //   final UsersRepository usersRepository;
 //   UserBloc({this.usersRepository}) : assert(usersRepository != null);

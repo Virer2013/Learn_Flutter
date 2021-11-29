@@ -1,21 +1,21 @@
-// import 'package:bloc_network_example/bloc/user_bloc.dart';
-// import 'package:cubit_network_example/bloc/user_event.dart';
-import 'package:cubit_network_example/cubit/user_cubit.dart';
+import 'package:cubit_network_example/bloc/user_bloc.dart';
+import 'package:cubit_network_example/bloc/user_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ActionButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    // final UserBloc userBloc = BlocProvider.of<UserBloc>(context);
-    final UserCubit userCubit = context.read<UserCubit>();
+    final UserBloc userBloc = context.read<UserBloc>();
+    // final UserCubit userCubit = context.read<UserCubit>();
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: <Widget>[
         ElevatedButton(
           child: Text('Load'),
           onPressed: () {
-            userCubit.fetchUsers();
+            userBloc.add(UserLoadEvent());
+            // userCubit.fetchUsers();
           },
           style: ElevatedButton.styleFrom(
             primary: Colors.green,
@@ -25,7 +25,8 @@ class ActionButtons extends StatelessWidget {
         ElevatedButton(
           child: Text('Clear'),
           onPressed: () {
-            userCubit.clearUsers();
+            userBloc.add(UserClearEvent());
+            // userCubit.clearUsers();
           },
           style: ElevatedButton.styleFrom(
             primary: Colors.red,

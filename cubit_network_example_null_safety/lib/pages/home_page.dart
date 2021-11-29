@@ -1,5 +1,5 @@
 // import 'package:bloc_network_example/bloc/user_bloc.dart';
-import 'package:cubit_network_example/cubit/user_cubit.dart';
+import 'package:cubit_network_example/bloc/user_bloc.dart';
 import 'package:cubit_network_example/services/user_repository.dart';
 import 'package:cubit_network_example/widgets/action_buttons.dart';
 import 'package:cubit_network_example/widgets/user_list.dart';
@@ -11,8 +11,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<UserCubit>(
-      create: (context) => UserCubit(usersRepository),
+    return BlocProvider<UserBloc>(
+      create: (context) => UserBloc(usersRepository),
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
