@@ -111,6 +111,7 @@ https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTER_112021
 * Flutter BLoC 4.0. Работа с сетью
 * Flutter BLoC 6.0. Работа с сетью
 * Flutter Cubit 6.0. Работа с сетью
+* Flutter Cubit\BLoC 8.0. Работа с сетью
 
 #### Раздел 12: Чистая Архитектура (The Clean Architecture)
 * Что будем проектировать?
