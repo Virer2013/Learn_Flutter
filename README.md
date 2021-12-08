@@ -157,6 +157,7 @@ https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTER_112021
 #### Раздел 15: Генерация кода
 * Работа с пакетом Freezed
 * Работа с BLoC и Freezed
+* Приложение "Rick and Morty. Найди персонажа"
 
 #### Раздел 16: Анимация (Раздел в разработке)
 * Введение. Пользовательская анимация
