@@ -133,6 +133,7 @@ https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTER_112021
 * Уровень представления: Детальная информация о персонаже
 * Уровень представления: Поиск персонажа
 * Заключение и ДЗ
+* Миграция приложения на Null Safety
 
 #### Раздел 13: Работа с Null Safety
 * Что такое Null Safety?
