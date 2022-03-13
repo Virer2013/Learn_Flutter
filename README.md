@@ -2,7 +2,8 @@
 Курс "Изучаем Flutter"
 
 Ссылка на курс:
-https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTER_112021
+https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTER_032022
+https://stepik.org/z/113607 (Промокод - FUTTER_032022)
 
 ## Содержание
 
@@ -160,7 +161,16 @@ https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTER_112021
 * Работа с BLoC и Freezed
 * Приложение "Rick and Morty. Найди персонажа"
 
-#### Раздел 16: Анимация (Раздел в разработке)
+#### Раздел 16: Ключи
+* Widget, Element, Render Object
+* Ключи. Введение
+* UniqueKey
+* ValueKey
+* ObjectKey
+* PageStorageKey
+* GlobalKey
+
+#### Раздел 17: Анимация (Раздел в разработке)
 * Введение. Пользовательская анимация
 * AnimationController и Animation
 * Контроль за ходом анимации
