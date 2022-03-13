@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:json_annotation/json_annotation.dart';
 
 import 'package:http/http.dart' as http;

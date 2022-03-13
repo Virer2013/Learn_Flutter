@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:manual_serialization/model/offices.dart';
 
-void main() => runApp(MyApp());
+import 'model/offices.dart';
 
-// https://about.google/static/data/locations.json
+void main() {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Flutter JSON Demo',
       home: MyHomePage(),
     );
@@ -16,8 +20,10 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -33,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Manual JSON Serialization'),
+        title: const Text('Manual JSON Serialization'),
         centerTitle: true,
       ),
       body: FutureBuilder<OfficesList>(
@@ -46,7 +52,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   return Card(
                     child: ListTile(
                       title: Text('${snapshot.data?.offices[index].name}'),
-                      subtitle: Text('${snapshot.data?.offices[index].address}'),
+                      subtitle:
+                          Text('${snapshot.data?.offices[index].address}'),
                       leading: Image.network(
                           '${snapshot.data?.offices[index].image}'),
                       isThreeLine: true,
@@ -54,9 +61,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   );
                 });
           } else if (snapshot.hasError) {
-            return Text('Error');
+            return const Text('Error');
           }
-          return Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator());
         },
       ),
     );
