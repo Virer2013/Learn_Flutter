@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 class Constants {
   static const String WEATHER_APP_ID = '1369dd6b5ae78fc9952261ab9aa236b4';
   static const String WEATHER_BASE_SCHEME = 'https://';

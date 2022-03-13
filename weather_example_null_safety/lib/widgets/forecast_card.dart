@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:weather_example/utilities/forecast_util.dart';
+
+import '../utilities/forecast_util.dart';
 
 Widget forecastCard(AsyncSnapshot snapshot, int index) {
   var forecastList = snapshot.data.list;
@@ -19,7 +20,7 @@ Widget forecastCard(AsyncSnapshot snapshot, int index) {
           padding: const EdgeInsets.all(8.0),
           child: Text(
             dayOfWeek,
-            style: TextStyle(fontSize: 25, color: Colors.white),
+            style: const TextStyle(fontSize: 25, color: Colors.white),
           ),
         ),
       ),
@@ -34,7 +35,7 @@ Widget forecastCard(AsyncSnapshot snapshot, int index) {
                     padding: const EdgeInsets.all(8.0),
                     child: Text(
                       '$tempMin °C',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 30.0,
                         color: Colors.white,
                       ),
