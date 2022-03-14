@@ -1,15 +1,17 @@
-import 'package:bloc_stream_example/color_bloc.dart';
 import 'package:flutter/material.dart';
 
+import 'color_bloc.dart';
+
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Flutter Demo',
       home: MyHomePage(),
     );
@@ -17,12 +19,14 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  ColorBloc _bloc = ColorBloc();
+  final ColorBloc _bloc = ColorBloc();
 
   @override
   void dispose() {
@@ -34,7 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BLoC with Stream'),
+        title: const Text('BLoC with Stream'),
         centerTitle: true,
       ),
       body: Center(
@@ -46,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
               height: 100,
               width: 100,
               color: snapshot.data,
-              duration: Duration(milliseconds: 500),
+              duration: const Duration(milliseconds: 500),
             );
           },
         ),
@@ -57,14 +61,14 @@ class _MyHomePageState extends State<MyHomePage> {
           FloatingActionButton(
             backgroundColor: Colors.red,
             onPressed: () {
-              _bloc.inputEventSink.add(ColorEvent.event_red);
+              _bloc.inputEventSink.add(ColorEvent.eventRed);
             },
           ),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
           FloatingActionButton(
             backgroundColor: Colors.green,
             onPressed: () {
-              _bloc.inputEventSink.add(ColorEvent.event_green);
+              _bloc.inputEventSink.add(ColorEvent.eventGreen);
             },
           ),
         ],

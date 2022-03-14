@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-enum ColorEvent { event_red, event_green }
+enum ColorEvent { eventRed, eventGreen }
 
 class ColorBloc {
   Color _color = Colors.red;
@@ -14,12 +14,13 @@ class ColorBloc {
   Stream<Color> get outputStateStream => _outputStateController.stream;
 
   void _mapEventToState(ColorEvent event) {
-    if (event == ColorEvent.event_red)
+    if (event == ColorEvent.eventRed) {
       _color = Colors.red;
-    else if (event == ColorEvent.event_green)
+    } else if (event == ColorEvent.eventGreen) {
       _color = Colors.green;
-    else
+    } else {
       throw Exception('Wrong Event Type');
+    }
 
     _outputStateController.sink.add(_color);
   }
