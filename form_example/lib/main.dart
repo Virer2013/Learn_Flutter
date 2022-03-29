@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
-
-import 'pages/register_form_page.dart';
+import 'package:form_example/pages/register_form_page.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Register Form Demo',
+      title: 'Flutter Demo',
       theme: ThemeData(
+        
         primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: RegisterFormPage(),
+      home: const RegisterFormPage(),
     );
   }
 }
