@@ -1,9 +1,13 @@
 # Learn_Flutter
 Курс "Изучаем Flutter"
 
-Ссылка на курс:
-https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTER_032022
-https://stepik.org/z/113607 (Промокод - FUTTER_032022)
+#### Площадка Stepik: 
+*Курс "Изучаем Flutter" на площадке Stepik - https://stepik.org/z/113607 (Промокод на скидку - FLUTTER_042022 )
+*Курс "Изучаем Dart" на площадке Stepik - https://stepik.org/z/115012
+
+#### Площадка Udemy: 
+*Курс "Изучаем Flutter" - https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTER_042022
+*Курс "Изучаем Dart" - https://www.udemy.com/course/learndart/?couponCode=DART_042022
 
 ## Содержание
 
