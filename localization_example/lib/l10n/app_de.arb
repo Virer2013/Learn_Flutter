@@ -1,0 +1,5 @@
+{
+    "language": "Deutsch",
+    "helloWorld": "Hallo Welt!",
+    "hello": "Hallo {username}"
+}
