@@ -2,14 +2,19 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyFirstApp());
-
-class MyFirstApp extends StatefulWidget {
-  @override
-  _MyFirstAppState createState() => _MyFirstAppState();
+void main() {
+  runApp(const MyApp());
 }
 
-class _MyFirstAppState extends State<MyFirstApp> {
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+
   late bool _loading;
   late double _progressValue;
 
@@ -24,8 +29,9 @@ class _MyFirstAppState extends State<MyFirstApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.indigo,
         appBar: AppBar(
-          title: Text('My First App'),
+          title: const Text('My First App'),
           centerTitle: true,
         ),
         body: Center(
@@ -37,14 +43,14 @@ class _MyFirstAppState extends State<MyFirstApp> {
                       LinearProgressIndicator(value: _progressValue),
                       Text(
                         '${(_progressValue * 100).round()}%',
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 20,
                         ),
                       ),
                     ],
                   )
-                : Text(
+                : const Text(
                     'Text button to download',
                     style: TextStyle(
                       color: Colors.white,
@@ -60,14 +66,14 @@ class _MyFirstAppState extends State<MyFirstApp> {
               _updateProgress();
             });
           },
-          child: Icon(Icons.cloud_download),
+          child: const Icon(Icons.cloud_download),
         ),
       ),
     );
   }
 
   void _updateProgress() {
-    const oneSec = const Duration(seconds: 1);
+    const oneSec = Duration(seconds: 1);
     Timer.periodic(oneSec, (Timer t) {
       setState(() {
         _progressValue += 0.2;
@@ -81,5 +87,3 @@ class _MyFirstAppState extends State<MyFirstApp> {
     });
   }
 }
-
-

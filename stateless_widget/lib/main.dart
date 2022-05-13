@@ -1,41 +1,49 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyFirstApp());
+void main() {
+  runApp(const MyApp());
+}
 
-class MyFirstApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        backgroundColor: Colors.indigo,
         appBar: AppBar(
-          title: Text('My First App'),
+          title: const Text('My First App'),
           centerTitle: true,
         ),
         body: Center(
-          child: Container(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                LinearProgressIndicator(value: 23),
-                Text(
-                  '23 %',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                  ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const <Widget>[
+              LinearProgressIndicator(value: 23),
+              Text(
+                '23 %',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
                 ),
-                Text(
-                  'Text button to download',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 20,
-                  ),
+              ),
+              Text(
+                'Text button to download',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
-        floatingActionButton: FloatingActionButton(
+        floatingActionButton: const FloatingActionButton(
           onPressed: null,
           child: Icon(Icons.cloud_download),
         ),
