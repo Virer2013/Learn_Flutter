@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -11,20 +13,20 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Inherited Demo'),
+      home: const MyHomePage(title: 'Inherited Demo'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key? key, required this.title}) : super(key: key);
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  MyHomePageState createState() => MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   int get counterValue => _counter;
@@ -36,14 +38,14 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Inherited Widget'),
+        title: const Text('Inherited Widget'),
         centerTitle: true,
       ),
       body: ListView(
         children: <Widget>[
           MyInheritedWidget(
             myState: this,
-            child: AppRootWidget(),
+            child: const AppRootWidget(),
           ),
         ],
       ),
@@ -52,6 +54,8 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class AppRootWidget extends StatelessWidget {
+  const AppRootWidget({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final rootWidgetState = MyInheritedWidget.of(context)!.myState;
@@ -61,10 +65,10 @@ class AppRootWidget extends StatelessWidget {
         children: <Widget>[
           Text('(Root Widget)', style: Theme.of(context).textTheme.headline4),
           Text('${rootWidgetState.counterValue}', style: Theme.of(context).textTheme.headline4),
-          SizedBox(height: 50),
+          const SizedBox(height: 50),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
+            children: const <Widget>[
               Counter(),
               Counter(),
             ],
@@ -76,25 +80,27 @@ class AppRootWidget extends StatelessWidget {
 }
 
 class Counter extends StatelessWidget {
+  const Counter({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final rootWidgetState = MyInheritedWidget.of(context)!.myState;
     return Card(
-      margin: EdgeInsets.all(4.0).copyWith(bottom: 32.0),
+      margin: const EdgeInsets.all(4.0).copyWith(bottom: 32.0),
       color: Colors.yellowAccent,
       child: Column(
         children: <Widget>[
-          Text('(Child Widget)'),
+          const Text('(Child Widget)'),
           Text('${rootWidgetState.counterValue}', style: Theme.of(context).textTheme.headline4),
           ButtonBar(
             children: <Widget>[
               IconButton(
-                icon: Icon(Icons.remove),
+                icon: const Icon(Icons.remove),
                 color: Colors.red,
                 onPressed: () => rootWidgetState._decrementCounter(),
               ),
               IconButton(
-                icon: Icon(Icons.add),
+                icon: const Icon(Icons.add),
                 color: Colors.green,
                 onPressed: () => rootWidgetState._incrementCounter(),
               ),
@@ -107,14 +113,14 @@ class Counter extends StatelessWidget {
 }
 
 class MyInheritedWidget extends InheritedWidget {
-  final _MyHomePageState myState;
+  final MyHomePageState myState;
 
-  MyInheritedWidget({Key? key, required Widget child, required this.myState})
+  const MyInheritedWidget({Key? key, required Widget child, required this.myState})
       : super(key: key, child: child);
 
   @override
   bool updateShouldNotify(MyInheritedWidget oldWidget) {
-    return this.myState.counterValue != oldWidget.myState.counterValue;
+    return myState.counterValue != oldWidget.myState.counterValue;
   }
 
   static MyInheritedWidget? of(BuildContext context) {

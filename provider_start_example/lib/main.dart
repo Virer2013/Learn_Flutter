@@ -3,9 +3,11 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -20,9 +22,9 @@ class MyApp extends StatelessWidget {
           length: 3,
           child: Scaffold(
             appBar: AppBar(
-              title: Text("Provider Demo"),
+              title: const Text("Provider Demo"),
               centerTitle: true,
-              bottom: TabBar(
+              bottom: const TabBar(
                 tabs: <Widget>[
                   Tab(icon: Icon(Icons.add)),
                   Tab(icon: Icon(Icons.person)),
@@ -30,7 +32,7 @@ class MyApp extends StatelessWidget {
                 ],
               ),
             ),
-            body: TabBarView(
+            body: const TabBarView(
               children: <Widget>[
                 MyCountPage(),
                 MyUserPage(),
@@ -45,6 +47,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyCountPage extends StatelessWidget {
+  const MyCountPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,20 +56,20 @@ class MyCountPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('ChangeNotifierProvider Example',
+            const Text('ChangeNotifierProvider Example',
                 style: TextStyle(fontSize: 20)),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             Text('0', style: Theme.of(context).textTheme.headline4),
             ButtonBar(
               alignment: MainAxisAlignment.center,
               children: <Widget>[
                 IconButton(
-                  icon: Icon(Icons.remove),
+                  icon: const Icon(Icons.remove),
                   color: Colors.red,
                   onPressed: () {},
                 ),
                 IconButton(
-                  icon: Icon(Icons.add),
+                  icon: const Icon(Icons.add),
                   color: Colors.green,
                   onPressed: () {},
                 ),
@@ -79,11 +83,13 @@ class MyCountPage extends StatelessWidget {
 }
 
 class MyUserPage extends StatelessWidget {
+  const MyUserPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Padding(
+        const Padding(
           padding: EdgeInsets.all(10.0),
           child: Text('FutureProvider Example, users loaded from a File',
               style: TextStyle(fontSize: 17)),
@@ -95,7 +101,7 @@ class MyUserPage extends StatelessWidget {
               return Container(
                   height: 50,
                   color: Colors.grey[(index * 200) % 400],
-                  child: Center(child: Text('TEST')));
+                  child: const Center(child: Text('TEST')));
             },
           ),
         ),
@@ -106,18 +112,19 @@ class MyUserPage extends StatelessWidget {
 
 // Event page (counting)
 class MyEventPage extends StatelessWidget {
+  const MyEventPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-        child: Center(
-            child: Column(
+    return Center(
+        child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('StreamProvider Example', style: TextStyle(fontSize: 20)),
-        SizedBox(height: 50),
-        Text('0', style: Theme.of(context).textTheme.headline4)
+    const Text('StreamProvider Example', style: TextStyle(fontSize: 20)),
+    const SizedBox(height: 50),
+    Text('0', style: Theme.of(context).textTheme.headline4)
       ],
-    )));
+    ));
   }
 }
 
@@ -143,7 +150,7 @@ class UserProvider {
   List<User> users = [];
 
   Future<String> loadAsset() async {
-    return await Future.delayed(Duration(seconds: 2), () async {
+    return await Future.delayed(const Duration(seconds: 2), () async {
       return await rootBundle.loadString(_dataPath);
     });
   }
@@ -159,8 +166,8 @@ class UserProvider {
 // EventProvider (Stream)
 class EventProvider {
   Stream<int> intStream() {
-    Duration interval = Duration(seconds: 2);
-    return Stream<int>.periodic(interval, (int _count) => _count++);
+    Duration interval = const Duration(seconds: 2);
+    return Stream<int>.periodic(interval, (int count) => count++);
   }
 }
 
@@ -170,9 +177,9 @@ class User {
   const User(this.firstName, this.lastName, this.website);
 
   User.fromJson(Map<String, dynamic> json)
-      : this.firstName = json['first_name'],
-        this.lastName = json['last_name'],
-        this.website = json['website'];
+      : firstName = json['first_name'],
+        lastName = json['last_name'],
+        website = json['website'];
 }
 
 // User List Model

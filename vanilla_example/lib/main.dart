@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Vanilla Demo',
       home: MyHomePage(),
     );
@@ -13,8 +15,10 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
@@ -22,75 +26,69 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    double _size = 50;
+    double size = 50;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Vanilla Demo'),
+        title: const Text('Vanilla Demo'),
       ),
       body: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Container(
-              child: IconButton(
-                icon: (_rating >= 2
-                    ? Icon(
-                        Icons.star,
-                        size: _size,
-                      )
-                    : Icon(
-                        Icons.star_border,
-                        size: _size,
-                      )),
-                color: Colors.indigo[500],
-                iconSize: _size,
-                onPressed: () {
-                  setState(() {
-                    _rating = 1;
-                  });
-                },
-              ),
+            IconButton(
+              icon: (_rating >= 2
+                  ? Icon(
+                      Icons.star,
+                      size: size,
+                    )
+                  : Icon(
+                      Icons.star_border,
+                      size: size,
+                    )),
+              color: Colors.indigo[500],
+              iconSize: size,
+              onPressed: () {
+                setState(() {
+                  _rating = 1;
+                });
+              },
             ),
-            Container(
-              child: IconButton(
-                icon: (_rating >= 2
-                    ? Icon(
-                        Icons.star,
-                        size: _size,
-                      )
-                    : Icon(
-                        Icons.star_border,
-                        size: _size,
-                      )),
-                color: Colors.indigo[500],
-                iconSize: _size,
-                onPressed: () {
-                  setState(() {
-                    _rating = 2;
-                  });
-                },
-              ),
+            IconButton(
+              icon: (_rating >= 2
+                  ? Icon(
+                      Icons.star,
+                      size: size,
+                    )
+                  : Icon(
+                      Icons.star_border,
+                      size: size,
+                    )),
+              color: Colors.indigo[500],
+              iconSize: size,
+              onPressed: () {
+                setState(() {
+                  _rating = 2;
+                });
+              },
             ),
-            Container(
-              child: IconButton(
-                icon: (_rating >= 3
-                    ? Icon(
-                        Icons.star,
-                        size: _size,
-                      )
-                    : Icon(
-                        Icons.star_border,
-                        size: _size,
-                      )),
-                color: Colors.indigo[500],
-                iconSize: _size,
-                onPressed: () {
-                  setState(() {
-                    _rating = 3;
-                  });
-                },
-              ),
+            IconButton(
+              icon: (_rating >= 3
+                  ? Icon(
+                      Icons.star,
+                      size: size,
+                    )
+                  : Icon(
+                      Icons.star_border,
+                      size: size,
+                    )),
+              color: Colors.indigo[500],
+              iconSize: size,
+              onPressed: () {
+                setState(() {
+                  _rating = 3;
+                });
+              },
             ),
           ],
         ),

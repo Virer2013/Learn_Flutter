@@ -5,9 +5,11 @@ import 'package:flutter/services.dart';
 
 import 'package:provider/provider.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class MyApp extends StatelessWidget {
         providers: [
           ChangeNotifierProvider<CountProvider>.value(value: CountProvider()),
           FutureProvider<List<User>>(
-            initialData: [],
+            initialData: const [],
             create: (_) async => UserProvider().loadUserData(),
           ),
           StreamProvider<int>(
@@ -34,9 +36,9 @@ class MyApp extends StatelessWidget {
             length: 3,
             child: Scaffold(
               appBar: AppBar(
-                title: Text("Provider Demo"),
+                title: const Text("Provider Demo"),
                 centerTitle: true,
-                bottom: TabBar(
+                bottom: const TabBar(
                   tabs: <Widget>[
                     Tab(icon: Icon(Icons.add)),
                     Tab(icon: Icon(Icons.person)),
@@ -44,7 +46,7 @@ class MyApp extends StatelessWidget {
                   ],
                 ),
               ),
-              body: TabBarView(
+              body: const TabBarView(
                 children: <Widget>[
                   MyCountPage(),
                   MyUserPage(),
@@ -60,31 +62,33 @@ class MyApp extends StatelessWidget {
 }
 
 class MyCountPage extends StatelessWidget {
+  const MyCountPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    CountProvider _state = Provider.of<CountProvider>(context);
+    CountProvider state = Provider.of<CountProvider>(context);
     return Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('ChangeNotifierProvider Example',
+            const Text('ChangeNotifierProvider Example',
                 style: TextStyle(fontSize: 20)),
-            SizedBox(height: 50),
-            Text('${_state.counterValue}',
+            const SizedBox(height: 50),
+            Text('${state.counterValue}',
                 style: Theme.of(context).textTheme.headline4),
             ButtonBar(
               alignment: MainAxisAlignment.center,
               children: <Widget>[
                 IconButton(
-                  icon: Icon(Icons.remove),
+                  icon: const Icon(Icons.remove),
                   color: Colors.red,
-                  onPressed: () => _state._decrementCount(),
+                  onPressed: () => state._decrementCount(),
                 ),
                 Consumer<CountProvider>(
                   builder: (context, value, child) {
                     return IconButton(
-                      icon: Icon(Icons.add),
+                      icon: const Icon(Icons.add),
                       color: Colors.green,
                       onPressed: () => value._incrementCount(),
                     );
@@ -100,11 +104,13 @@ class MyCountPage extends StatelessWidget {
 }
 
 class MyUserPage extends StatelessWidget {
+  const MyUserPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Padding(
+        const Padding(
           padding: EdgeInsets.all(10.0),
           child: Text('FutureProvider Example, users loaded from a File',
               style: TextStyle(fontSize: 17)),
@@ -113,7 +119,7 @@ class MyUserPage extends StatelessWidget {
           builder: (context, List<User> users, _) {
             return Expanded(
               child: users.isEmpty
-                  ? Container(child: Center(child: CircularProgressIndicator()))
+                  ? const Center(child: CircularProgressIndicator())
                   : ListView.builder(
                       itemCount: users.length,
                       itemBuilder: (context, index) {
@@ -135,20 +141,21 @@ class MyUserPage extends StatelessWidget {
 
 // Event page (counting)
 class MyEventPage extends StatelessWidget {
+  const MyEventPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    var _value = Provider.of<int>(context);
-    return Container(
-        child: Center(
-            child: Column(
+    var value = Provider.of<int>(context);
+    return Center(
+        child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text('StreamProvider Example', style: TextStyle(fontSize: 20)),
-        SizedBox(height: 50),
-        Text('${_value.toString()}',
-            style: Theme.of(context).textTheme.headline4)
+    const Text('StreamProvider Example', style: TextStyle(fontSize: 20)),
+    const SizedBox(height: 50),
+    Text(value.toString(),
+        style: Theme.of(context).textTheme.headline4)
       ],
-    )));
+    ));
   }
 }
 
@@ -174,7 +181,7 @@ class UserProvider {
   List<User> users = [];
 
   Future<String> loadAsset() async {
-    return await Future.delayed(Duration(seconds: 2), () async {
+    return await Future.delayed(const Duration(seconds: 2), () async {
       return await rootBundle.loadString(_dataPath);
     });
   }
@@ -190,8 +197,8 @@ class UserProvider {
 // EventProvider (Stream)
 class EventProvider {
   Stream<int> intStream() {
-    Duration interval = Duration(seconds: 2);
-    return Stream<int>.periodic(interval, (int _count) => _count++);
+    Duration interval = const Duration(seconds: 2);
+    return Stream<int>.periodic(interval, (int count) => count++);
   }
 }
 
@@ -201,9 +208,9 @@ class User {
   const User(this.firstName, this.lastName, this.website);
 
   User.fromJson(Map<String, dynamic> json)
-      : this.firstName = json['first_name'],
-        this.lastName = json['last_name'],
-        this.website = json['website'];
+      : firstName = json['first_name'],
+        lastName = json['last_name'],
+        website = json['website'];
 }
 
 // User List Model
