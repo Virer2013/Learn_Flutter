@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:returned_pass_data/screen/second_screen.dart';
 
 class FirstScreen extends StatefulWidget {
+  const FirstScreen({Key? key}) : super(key: key);
+
   @override
-  _FirstScreenState createState() => _FirstScreenState();
+  State<FirstScreen> createState() => _FirstScreenState();
 }
 
 class _FirstScreenState extends State<FirstScreen> {
@@ -13,7 +15,7 @@ class _FirstScreenState extends State<FirstScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('First screen'),
+        title: const Text('First screen'),
         centerTitle: true,
       ),
       body: Center(
@@ -24,11 +26,11 @@ class _FirstScreenState extends State<FirstScreen> {
               padding: const EdgeInsets.all(32.0),
               child: Text(
                 text,
-                style: TextStyle(fontSize: 24),
+                style: const TextStyle(fontSize: 24),
               ),
             ),
             ElevatedButton(
-              child: Text(
+              child: const Text(
                 'Go to second screen',
                 style: TextStyle(fontSize: 24),
               ),
@@ -43,7 +45,7 @@ class _FirstScreenState extends State<FirstScreen> {
   }
 
   void _returnDataFromSecondScreen(BuildContext context) async {
-    Route route = MaterialPageRoute(builder: (context) => SecondScreen());
+    Route route = MaterialPageRoute(builder: (context) => const SecondScreen());
     final result = await Navigator.push(context, route);
 
     setState(() {

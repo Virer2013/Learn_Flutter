@@ -1,27 +1,33 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Named Routing'),
+          title: const Text('Named Routing'),
           centerTitle: true,
         ),
-        body: HomePage(),
+        body: const HomePage(),
       ),
       initialRoute: '/',
       routes: {
-        '/page2': (context) => Page2(),
+        '/page2': (context) => const Page2(),
       },
     );
   }
 }
 
 class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -29,18 +35,20 @@ class HomePage extends StatelessWidget {
         onPressed: () {
           Navigator.pushNamed(context, '/page2');
         },
-        child: Text('Move to Page 2'),
+        child: const Text('Move to Page 2'),
       ),
     );
   }
 }
 
 class Page2 extends StatelessWidget {
+  const Page2({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Page 2'),
+        title: const Text('Page 2'),
         centerTitle: true,
       ),
       body: Center(
@@ -48,7 +56,7 @@ class Page2 extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          child: Text('Go Back'),
+          child: const Text('Go Back'),
         ),
       ),
     );

@@ -2,29 +2,31 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: FirstHome(),
+    home: const FirstHome(),
     routes: {
-      '/first': (context) => FirstHome(),
+      '/first': (context) => const FirstHome(),
       '/second': (context) => SecondHome(),
     },
   ));
 }
 
 class FirstHome extends StatelessWidget {
+  const FirstHome({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('First Home'),
+        title: const Text('First Home'),
         centerTitle: true,
       ),
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            User user = User(name: 'Konstantin', age: 34);
+            User user = User(name: 'Konstantin', age: 36);
             Navigator.pushNamed(context, '/second', arguments: user);
           },
-          child: Text('Second Home'),
+          child: const Text('Second Home'),
         ),
       ),
     );
@@ -40,7 +42,7 @@ class SecondHome extends StatelessWidget {
     user = settings.arguments as User;
     return Scaffold(
       appBar: AppBar(
-        title: Text('${this.user.name} - ${this.user.age}'),
+        title: Text('${user.name} - ${user.age}'),
         centerTitle: true,
       ),
       body: Center(
@@ -48,7 +50,7 @@ class SecondHome extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          child: Text('Go Back'),
+          child: const Text('Go Back'),
         ),
       ),
     );

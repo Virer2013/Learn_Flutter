@@ -1,23 +1,25 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MaterialApp(
+  runApp(const MaterialApp(
     home: FirstHome(),
   ));
 }
 
 class FirstHome extends StatelessWidget {
+  const FirstHome({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('First Home'),
+        title: const Text('First Home'),
         centerTitle: true,
       ),
       body: Center(
         child: ElevatedButton(
           onPressed: () {},
-          child: Text('Second Home'),
+          child: const Text('Second Home'),
         ),
       ),
     );
@@ -25,6 +27,8 @@ class FirstHome extends StatelessWidget {
 }
 
 class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -34,7 +38,7 @@ class HomePage extends StatelessWidget {
           Route route = MaterialPageRoute(builder: (context) => SecondHome(user: user));
           Navigator.push(context, route);
         },
-        child: Text('Move to Page 2'),
+        child: const Text('Move to Page 2'),
       ),
     );
   }
@@ -42,13 +46,13 @@ class HomePage extends StatelessWidget {
 
 class SecondHome extends StatelessWidget {
   final User user;
-  SecondHome({required this.user});
+  const SecondHome({Key? key, required this.user}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('${this.user.name} - ${this.user.age}'),
+        title: Text('${user.name} - ${user.age}'),
         centerTitle: true,
       ),
       body: Center(
@@ -56,7 +60,7 @@ class SecondHome extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          child: Text('Go Back'),
+          child: const Text('Go Back'),
         ),
       ),
     );
