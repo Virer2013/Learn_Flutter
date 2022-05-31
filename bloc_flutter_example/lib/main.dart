@@ -3,31 +3,33 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'BLoC with flutter_bloc',
       home: BlocProvider(
         create: (context) => ColorBloc(),
-        child: MyHomePage(),
+        child: const MyHomePage(),
       ),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
+  const MyHomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    // ignore: close_sinks
-    ColorBloc _bloc = BlocProvider.of<ColorBloc>(context);
+    ColorBloc bloc = BlocProvider.of<ColorBloc>(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text('BLoC with flutter_bloc'),
+        title: const Text('BLoC with flutter_bloc'),
         centerTitle: true,
       ),
       body: Center(
@@ -36,25 +38,25 @@ class MyHomePage extends StatelessWidget {
             height: 100,
             width: 100,
             color: currentColor,
-            duration: Duration(milliseconds: 500),
+            duration: const Duration(milliseconds: 500),
           ),
         ),
       ),
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.end,
-        children: <Widget>[
+        children: [
           FloatingActionButton(
+            onPressed: () {
+              bloc.add(RedColorEvent());
+            },
             backgroundColor: Colors.red,
-            onPressed: () {
-              _bloc.add(ColorEvent.event_red);
-            },
           ),
-          SizedBox(width: 10),
+          const SizedBox(width: 10),
           FloatingActionButton(
-            backgroundColor: Colors.green,
             onPressed: () {
-              _bloc.add(ColorEvent.event_green);
+              bloc.add(GreenColorEvent());
             },
+            backgroundColor: Colors.green,
           ),
         ],
       ),

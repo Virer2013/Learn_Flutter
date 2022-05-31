@@ -2,12 +2,12 @@
 Курс "Изучаем Flutter"
 
 #### Площадка Stepik: 
-* Курс "Изучаем Flutter" на площадке Stepik - https://stepik.org/z/113607 (Промокод на скидку - FLUTTER_052022 )
+* Курс "Изучаем Flutter" на площадке Stepik - https://stepik.org/z/113607 (Промокод на скидку - FLUTTER_062022 )
 * Курс "Изучаем Dart" на площадке Stepik - https://stepik.org/z/115012
 
 #### Площадка Udemy: 
-* Курс "Изучаем Flutter" - https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTER_052022
-* Курс "Изучаем Dart" - https://www.udemy.com/course/learndart/?couponCode=DART_052022
+* Курс "Изучаем Flutter" - https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTER_062022
+* Курс "Изучаем Dart" - https://www.udemy.com/course/learndart/?couponCode=DART_062022
 
 ## Содержание
 
@@ -112,11 +112,9 @@
 #### Раздел 11: BLoC
 * BLoC. Теория
 * BLoC на потоках (Stream)
-* BLoC (flutter_bloc 4.0)
-* Flutter BLoC 4.0. Работа с сетью
-* Flutter BLoC 6.0. Работа с сетью
-* Flutter Cubit 6.0. Работа с сетью
-* Flutter Cubit\BLoC 8.0. Работа с сетью
+* BLoC (flutter_bloc 8.0)
+* Flutter BLoC 8.0 Работа с сетью
+* Flutter Cubit 8.0
 
 #### Раздел 12: Чистая Архитектура (The Clean Architecture)
 * Что будем проектировать?
@@ -173,6 +171,7 @@
 * ObjectKey
 * PageStorageKey
 * GlobalKey
+* Краткие итоги по ключам (текст)
 
 #### Раздел 17: Анимация (Раздел в разработке)
 * Введение. Пользовательская анимация

@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-enum ColorEvent {event_red, event_green}
+abstract class ColorEvent {}
+
+class RedColorEvent extends ColorEvent {}
+class GreenColorEvent extends ColorEvent {}
 
 class ColorBloc extends Bloc<ColorEvent, Color> {
-  Color _color = Colors.red;
-
-  @override
-  Color get initialState => Colors.red;
-
-  @override
-  Stream<Color> mapEventToState(ColorEvent event) async* {
-    _color = (event == ColorEvent.event_red) ? Colors.red : Colors.green;
-    yield _color;
+  ColorBloc() : super(Colors.red) {
+    on<RedColorEvent>((event, emit) => emit(Colors.red));
+    on<GreenColorEvent>((event, emit) => emit(Colors.green));
   }
   
 }
