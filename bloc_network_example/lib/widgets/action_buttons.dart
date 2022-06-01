@@ -4,26 +4,35 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ActionButtons extends StatelessWidget {
+  const ActionButtons({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    final UserBloc userBloc = BlocProvider.of<UserBloc>(context);
+    //final UserBloc userBloc = BlocProvider.of<UserBloc>(context, listen: false);
+    final UserBloc userBloc = context.read<UserBloc>();
+    // final UserBloc userBloc = BlocProvider.of<UserBloc>(context, listen: true);
+    // final UserBloc userBloc = context.watch<UserBloc>();
     return Row(
       mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        RaisedButton(
-          child: Text('Load'),
+      children: [
+        ElevatedButton(
           onPressed: () {
             userBloc.add(UserLoadEvent());
           },
-          color: Colors.green,
+          style: ElevatedButton.styleFrom(
+            primary: Colors.green,
+          ),
+          child: const Text('Load'),
         ),
-        SizedBox(width: 8.0),
-        RaisedButton(
-          child: Text('Clear'),
+        const SizedBox(width: 8.0),
+        ElevatedButton(
           onPressed: () {
             userBloc.add(UserClearEvent());
           },
-          color: Colors.red,
+          style: ElevatedButton.styleFrom(
+            primary: Colors.red,
+          ),
+          child: const Text('Clear'),
         ),
       ],
     );
