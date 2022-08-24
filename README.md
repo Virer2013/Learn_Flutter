@@ -2,12 +2,12 @@
 Курс "Изучаем Flutter"
 
 #### Площадка Stepik: 
-* Курс "Изучаем Flutter" на площадке Stepik - https://stepik.org/z/113607 (Промокод на скидку - FLUTTER_062022 )
+* Курс "Изучаем Flutter" на площадке Stepik - https://stepik.org/z/113607
 * Курс "Изучаем Dart" на площадке Stepik - https://stepik.org/z/115012
 
 #### Площадка Udemy: 
-* Курс "Изучаем Flutter" - https://www.udemy.com/course/learn_flutter/?couponCode=FLUTTER_062022
-* Курс "Изучаем Dart" - https://www.udemy.com/course/learndart/?couponCode=DART_062022
+* Курс "Изучаем Flutter" - https://www.udemy.com/course/learn_flutter/
+* Курс "Изучаем Dart" - https://www.udemy.com/course/learndart/
 
 ## Содержание
 
@@ -173,7 +173,14 @@
 * GlobalKey
 * Краткие итоги по ключам (текст)
 
-#### Раздел 17: Анимация (Раздел в разработке)
+#### Раздел 17: Основы тестирования
+* Введение
+* Основы Unit тестирвоания
+* Основы Widget тестирвоания
+* Основы Integration тестирвоания
+* Основы работы с Mocktail
+
+#### Раздел 18: Анимация (Раздел в разработке)
 * Введение. Пользовательская анимация
 * AnimationController и Animation
 * Контроль за ходом анимации
