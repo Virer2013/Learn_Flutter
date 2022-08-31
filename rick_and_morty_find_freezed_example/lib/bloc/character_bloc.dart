@@ -1,4 +1,3 @@
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:rick_and_morty_find_freezed_example/data/models/character.dart';
@@ -16,10 +15,10 @@ class CharacterBloc extends Bloc<CharacterEvent, CharacterState> with HydratedMi
     on<CharacterEventFetch>((event, emit) async {
       emit(const CharacterState.loading());
       try {
-        Character _characterLoaded = await characterRepo
+        Character characterLoaded = await characterRepo
             .getCharacter(event.page, event.name)
             .timeout(const Duration(seconds: 5));
-        emit(CharacterState.loaded(characterLoaded: _characterLoaded));
+        emit(CharacterState.loaded(characterLoaded: characterLoaded));
       } catch (_) {
         emit(const CharacterState.error());
         rethrow;

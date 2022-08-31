@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'character_bloc.dart';
@@ -11,28 +12,12 @@ part of 'character_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$CharacterEventTearOff {
-  const _$CharacterEventTearOff();
-
-  CharacterEventFetch fetch({required String name, required int page}) {
-    return CharacterEventFetch(
-      name: name,
-      page: page,
-    );
-  }
-}
-
-/// @nodoc
-const $CharacterEvent = _$CharacterEventTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$CharacterEvent {
   String get name => throw _privateConstructorUsedError;
   int get page => throw _privateConstructorUsedError;
-
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String name, int page) fetch,
@@ -107,32 +92,32 @@ class _$CharacterEventCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $CharacterEventFetchCopyWith<$Res>
+abstract class _$$CharacterEventFetchCopyWith<$Res>
     implements $CharacterEventCopyWith<$Res> {
-  factory $CharacterEventFetchCopyWith(
-          CharacterEventFetch value, $Res Function(CharacterEventFetch) then) =
-      _$CharacterEventFetchCopyWithImpl<$Res>;
+  factory _$$CharacterEventFetchCopyWith(_$CharacterEventFetch value,
+          $Res Function(_$CharacterEventFetch) then) =
+      __$$CharacterEventFetchCopyWithImpl<$Res>;
   @override
   $Res call({String name, int page});
 }
 
 /// @nodoc
-class _$CharacterEventFetchCopyWithImpl<$Res>
+class __$$CharacterEventFetchCopyWithImpl<$Res>
     extends _$CharacterEventCopyWithImpl<$Res>
-    implements $CharacterEventFetchCopyWith<$Res> {
-  _$CharacterEventFetchCopyWithImpl(
-      CharacterEventFetch _value, $Res Function(CharacterEventFetch) _then)
-      : super(_value, (v) => _then(v as CharacterEventFetch));
+    implements _$$CharacterEventFetchCopyWith<$Res> {
+  __$$CharacterEventFetchCopyWithImpl(
+      _$CharacterEventFetch _value, $Res Function(_$CharacterEventFetch) _then)
+      : super(_value, (v) => _then(v as _$CharacterEventFetch));
 
   @override
-  CharacterEventFetch get _value => super._value as CharacterEventFetch;
+  _$CharacterEventFetch get _value => super._value as _$CharacterEventFetch;
 
   @override
   $Res call({
     Object? name = freezed,
     Object? page = freezed,
   }) {
-    return _then(CharacterEventFetch(
+    return _then(_$CharacterEventFetch(
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -164,18 +149,22 @@ class _$CharacterEventFetch implements CharacterEventFetch {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is CharacterEventFetch &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.page, page) || other.page == page));
+            other is _$CharacterEventFetch &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.page, page));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, page);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(page));
 
   @JsonKey(ignore: true)
   @override
-  $CharacterEventFetchCopyWith<CharacterEventFetch> get copyWith =>
-      _$CharacterEventFetchCopyWithImpl<CharacterEventFetch>(this, _$identity);
+  _$$CharacterEventFetchCopyWith<_$CharacterEventFetch> get copyWith =>
+      __$$CharacterEventFetchCopyWithImpl<_$CharacterEventFetch>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -235,8 +224,9 @@ class _$CharacterEventFetch implements CharacterEventFetch {
 }
 
 abstract class CharacterEventFetch implements CharacterEvent {
-  const factory CharacterEventFetch({required String name, required int page}) =
-      _$CharacterEventFetch;
+  const factory CharacterEventFetch(
+      {required final String name,
+      required final int page}) = _$CharacterEventFetch;
 
   @override
   String get name;
@@ -244,7 +234,7 @@ abstract class CharacterEventFetch implements CharacterEvent {
   int get page;
   @override
   @JsonKey(ignore: true)
-  $CharacterEventFetchCopyWith<CharacterEventFetch> get copyWith =>
+  _$$CharacterEventFetchCopyWith<_$CharacterEventFetch> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -262,32 +252,6 @@ CharacterState _$CharacterStateFromJson(Map<String, dynamic> json) {
           'Invalid union type "${json['runtimeType']}"!');
   }
 }
-
-/// @nodoc
-class _$CharacterStateTearOff {
-  const _$CharacterStateTearOff();
-
-  CharacterStateLoading loading() {
-    return const CharacterStateLoading();
-  }
-
-  CharacterStateLoaded loaded({required Character characterLoaded}) {
-    return CharacterStateLoaded(
-      characterLoaded: characterLoaded,
-    );
-  }
-
-  CharacterStateError error() {
-    return const CharacterStateError();
-  }
-
-  CharacterState fromJson(Map<String, Object?> json) {
-    return CharacterState.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $CharacterState = _$CharacterStateTearOff();
 
 /// @nodoc
 mixin _$CharacterState {
@@ -356,28 +320,29 @@ class _$CharacterStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class $CharacterStateLoadingCopyWith<$Res> {
-  factory $CharacterStateLoadingCopyWith(CharacterStateLoading value,
-          $Res Function(CharacterStateLoading) then) =
-      _$CharacterStateLoadingCopyWithImpl<$Res>;
+abstract class _$$CharacterStateLoadingCopyWith<$Res> {
+  factory _$$CharacterStateLoadingCopyWith(_$CharacterStateLoading value,
+          $Res Function(_$CharacterStateLoading) then) =
+      __$$CharacterStateLoadingCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$CharacterStateLoadingCopyWithImpl<$Res>
+class __$$CharacterStateLoadingCopyWithImpl<$Res>
     extends _$CharacterStateCopyWithImpl<$Res>
-    implements $CharacterStateLoadingCopyWith<$Res> {
-  _$CharacterStateLoadingCopyWithImpl(
-      CharacterStateLoading _value, $Res Function(CharacterStateLoading) _then)
-      : super(_value, (v) => _then(v as CharacterStateLoading));
+    implements _$$CharacterStateLoadingCopyWith<$Res> {
+  __$$CharacterStateLoadingCopyWithImpl(_$CharacterStateLoading _value,
+      $Res Function(_$CharacterStateLoading) _then)
+      : super(_value, (v) => _then(v as _$CharacterStateLoading));
 
   @override
-  CharacterStateLoading get _value => super._value as CharacterStateLoading;
+  _$CharacterStateLoading get _value => super._value as _$CharacterStateLoading;
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$CharacterStateLoading implements CharacterStateLoading {
-  const _$CharacterStateLoading({String? $type}) : $type = $type ?? 'loading';
+  const _$CharacterStateLoading({final String? $type})
+      : $type = $type ?? 'loading';
 
   factory _$CharacterStateLoading.fromJson(Map<String, dynamic> json) =>
       _$$CharacterStateLoadingFromJson(json);
@@ -393,9 +358,10 @@ class _$CharacterStateLoading implements CharacterStateLoading {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is CharacterStateLoading);
+        (other.runtimeType == runtimeType && other is _$CharacterStateLoading);
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -469,7 +435,9 @@ class _$CharacterStateLoading implements CharacterStateLoading {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CharacterStateLoadingToJson(this);
+    return _$$CharacterStateLoadingToJson(
+      this,
+    );
   }
 }
 
@@ -481,31 +449,31 @@ abstract class CharacterStateLoading implements CharacterState {
 }
 
 /// @nodoc
-abstract class $CharacterStateLoadedCopyWith<$Res> {
-  factory $CharacterStateLoadedCopyWith(CharacterStateLoaded value,
-          $Res Function(CharacterStateLoaded) then) =
-      _$CharacterStateLoadedCopyWithImpl<$Res>;
+abstract class _$$CharacterStateLoadedCopyWith<$Res> {
+  factory _$$CharacterStateLoadedCopyWith(_$CharacterStateLoaded value,
+          $Res Function(_$CharacterStateLoaded) then) =
+      __$$CharacterStateLoadedCopyWithImpl<$Res>;
   $Res call({Character characterLoaded});
 
   $CharacterCopyWith<$Res> get characterLoaded;
 }
 
 /// @nodoc
-class _$CharacterStateLoadedCopyWithImpl<$Res>
+class __$$CharacterStateLoadedCopyWithImpl<$Res>
     extends _$CharacterStateCopyWithImpl<$Res>
-    implements $CharacterStateLoadedCopyWith<$Res> {
-  _$CharacterStateLoadedCopyWithImpl(
-      CharacterStateLoaded _value, $Res Function(CharacterStateLoaded) _then)
-      : super(_value, (v) => _then(v as CharacterStateLoaded));
+    implements _$$CharacterStateLoadedCopyWith<$Res> {
+  __$$CharacterStateLoadedCopyWithImpl(_$CharacterStateLoaded _value,
+      $Res Function(_$CharacterStateLoaded) _then)
+      : super(_value, (v) => _then(v as _$CharacterStateLoaded));
 
   @override
-  CharacterStateLoaded get _value => super._value as CharacterStateLoaded;
+  _$CharacterStateLoaded get _value => super._value as _$CharacterStateLoaded;
 
   @override
   $Res call({
     Object? characterLoaded = freezed,
   }) {
-    return _then(CharacterStateLoaded(
+    return _then(_$CharacterStateLoaded(
       characterLoaded: characterLoaded == freezed
           ? _value.characterLoaded
           : characterLoaded // ignore: cast_nullable_to_non_nullable
@@ -524,7 +492,8 @@ class _$CharacterStateLoadedCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$CharacterStateLoaded implements CharacterStateLoaded {
-  const _$CharacterStateLoaded({required this.characterLoaded, String? $type})
+  const _$CharacterStateLoaded(
+      {required this.characterLoaded, final String? $type})
       : $type = $type ?? 'loaded';
 
   factory _$CharacterStateLoaded.fromJson(Map<String, dynamic> json) =>
@@ -545,18 +514,20 @@ class _$CharacterStateLoaded implements CharacterStateLoaded {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is CharacterStateLoaded &&
-            (identical(other.characterLoaded, characterLoaded) ||
-                other.characterLoaded == characterLoaded));
+            other is _$CharacterStateLoaded &&
+            const DeepCollectionEquality()
+                .equals(other.characterLoaded, characterLoaded));
   }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, characterLoaded);
 
   @JsonKey(ignore: true)
   @override
-  $CharacterStateLoadedCopyWith<CharacterStateLoaded> get copyWith =>
-      _$CharacterStateLoadedCopyWithImpl<CharacterStateLoaded>(
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(characterLoaded));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$CharacterStateLoadedCopyWith<_$CharacterStateLoaded> get copyWith =>
+      __$$CharacterStateLoadedCopyWithImpl<_$CharacterStateLoaded>(
           this, _$identity);
 
   @override
@@ -629,46 +600,48 @@ class _$CharacterStateLoaded implements CharacterStateLoaded {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CharacterStateLoadedToJson(this);
+    return _$$CharacterStateLoadedToJson(
+      this,
+    );
   }
 }
 
 abstract class CharacterStateLoaded implements CharacterState {
-  const factory CharacterStateLoaded({required Character characterLoaded}) =
-      _$CharacterStateLoaded;
+  const factory CharacterStateLoaded(
+      {required final Character characterLoaded}) = _$CharacterStateLoaded;
 
   factory CharacterStateLoaded.fromJson(Map<String, dynamic> json) =
       _$CharacterStateLoaded.fromJson;
 
   Character get characterLoaded;
   @JsonKey(ignore: true)
-  $CharacterStateLoadedCopyWith<CharacterStateLoaded> get copyWith =>
+  _$$CharacterStateLoadedCopyWith<_$CharacterStateLoaded> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CharacterStateErrorCopyWith<$Res> {
-  factory $CharacterStateErrorCopyWith(
-          CharacterStateError value, $Res Function(CharacterStateError) then) =
-      _$CharacterStateErrorCopyWithImpl<$Res>;
+abstract class _$$CharacterStateErrorCopyWith<$Res> {
+  factory _$$CharacterStateErrorCopyWith(_$CharacterStateError value,
+          $Res Function(_$CharacterStateError) then) =
+      __$$CharacterStateErrorCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$CharacterStateErrorCopyWithImpl<$Res>
+class __$$CharacterStateErrorCopyWithImpl<$Res>
     extends _$CharacterStateCopyWithImpl<$Res>
-    implements $CharacterStateErrorCopyWith<$Res> {
-  _$CharacterStateErrorCopyWithImpl(
-      CharacterStateError _value, $Res Function(CharacterStateError) _then)
-      : super(_value, (v) => _then(v as CharacterStateError));
+    implements _$$CharacterStateErrorCopyWith<$Res> {
+  __$$CharacterStateErrorCopyWithImpl(
+      _$CharacterStateError _value, $Res Function(_$CharacterStateError) _then)
+      : super(_value, (v) => _then(v as _$CharacterStateError));
 
   @override
-  CharacterStateError get _value => super._value as CharacterStateError;
+  _$CharacterStateError get _value => super._value as _$CharacterStateError;
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$CharacterStateError implements CharacterStateError {
-  const _$CharacterStateError({String? $type}) : $type = $type ?? 'error';
+  const _$CharacterStateError({final String? $type}) : $type = $type ?? 'error';
 
   factory _$CharacterStateError.fromJson(Map<String, dynamic> json) =>
       _$$CharacterStateErrorFromJson(json);
@@ -684,9 +657,10 @@ class _$CharacterStateError implements CharacterStateError {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is CharacterStateError);
+        (other.runtimeType == runtimeType && other is _$CharacterStateError);
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => runtimeType.hashCode;
 
@@ -760,7 +734,9 @@ class _$CharacterStateError implements CharacterStateError {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$CharacterStateErrorToJson(this);
+    return _$$CharacterStateErrorToJson(
+      this,
+    );
   }
 }
 

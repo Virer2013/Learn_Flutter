@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'character.dart';
@@ -11,30 +12,11 @@ part of 'character.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 Character _$CharacterFromJson(Map<String, dynamic> json) {
   return _Character.fromJson(json);
 }
-
-/// @nodoc
-class _$CharacterTearOff {
-  const _$CharacterTearOff();
-
-  _Character call({required Info info, required List<Results> results}) {
-    return _Character(
-      info: info,
-      results: results,
-    );
-  }
-
-  Character fromJson(Map<String, Object?> json) {
-    return Character.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Character = _$CharacterTearOff();
 
 /// @nodoc
 mixin _$Character {
@@ -90,10 +72,10 @@ class _$CharacterCopyWithImpl<$Res> implements $CharacterCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$CharacterCopyWith<$Res> implements $CharacterCopyWith<$Res> {
-  factory _$CharacterCopyWith(
-          _Character value, $Res Function(_Character) then) =
-      __$CharacterCopyWithImpl<$Res>;
+abstract class _$$_CharacterCopyWith<$Res> implements $CharacterCopyWith<$Res> {
+  factory _$$_CharacterCopyWith(
+          _$_Character value, $Res Function(_$_Character) then) =
+      __$$_CharacterCopyWithImpl<$Res>;
   @override
   $Res call({Info info, List<Results> results});
 
@@ -102,26 +84,27 @@ abstract class _$CharacterCopyWith<$Res> implements $CharacterCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$CharacterCopyWithImpl<$Res> extends _$CharacterCopyWithImpl<$Res>
-    implements _$CharacterCopyWith<$Res> {
-  __$CharacterCopyWithImpl(_Character _value, $Res Function(_Character) _then)
-      : super(_value, (v) => _then(v as _Character));
+class __$$_CharacterCopyWithImpl<$Res> extends _$CharacterCopyWithImpl<$Res>
+    implements _$$_CharacterCopyWith<$Res> {
+  __$$_CharacterCopyWithImpl(
+      _$_Character _value, $Res Function(_$_Character) _then)
+      : super(_value, (v) => _then(v as _$_Character));
 
   @override
-  _Character get _value => super._value as _Character;
+  _$_Character get _value => super._value as _$_Character;
 
   @override
   $Res call({
     Object? info = freezed,
     Object? results = freezed,
   }) {
-    return _then(_Character(
+    return _then(_$_Character(
       info: info == freezed
           ? _value.info
           : info // ignore: cast_nullable_to_non_nullable
               as Info,
       results: results == freezed
-          ? _value.results
+          ? _value._results
           : results // ignore: cast_nullable_to_non_nullable
               as List<Results>,
     ));
@@ -130,58 +113,60 @@ class __$CharacterCopyWithImpl<$Res> extends _$CharacterCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Character with DiagnosticableTreeMixin implements _Character {
-  const _$_Character({required this.info, required this.results});
+class _$_Character implements _Character {
+  const _$_Character({required this.info, required final List<Results> results})
+      : _results = results;
 
   factory _$_Character.fromJson(Map<String, dynamic> json) =>
       _$$_CharacterFromJson(json);
 
   @override
   final Info info;
+  final List<Results> _results;
   @override
-  final List<Results> results;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Character(info: $info, results: $results)';
+  List<Results> get results {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_results);
   }
 
   @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'Character'))
-      ..add(DiagnosticsProperty('info', info))
-      ..add(DiagnosticsProperty('results', results));
+  String toString() {
+    return 'Character(info: $info, results: $results)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Character &&
-            (identical(other.info, info) || other.info == info) &&
-            const DeepCollectionEquality().equals(other.results, results));
+            other is _$_Character &&
+            const DeepCollectionEquality().equals(other.info, info) &&
+            const DeepCollectionEquality().equals(other._results, _results));
   }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType, info, const DeepCollectionEquality().hash(results));
 
   @JsonKey(ignore: true)
   @override
-  _$CharacterCopyWith<_Character> get copyWith =>
-      __$CharacterCopyWithImpl<_Character>(this, _$identity);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(info),
+      const DeepCollectionEquality().hash(_results));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_CharacterCopyWith<_$_Character> get copyWith =>
+      __$$_CharacterCopyWithImpl<_$_Character>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CharacterToJson(this);
+    return _$$_CharacterToJson(
+      this,
+    );
   }
 }
 
 abstract class _Character implements Character {
   const factory _Character(
-      {required Info info, required List<Results> results}) = _$_Character;
+      {required final Info info,
+      required final List<Results> results}) = _$_Character;
 
   factory _Character.fromJson(Map<String, dynamic> json) =
       _$_Character.fromJson;
@@ -192,35 +177,13 @@ abstract class _Character implements Character {
   List<Results> get results;
   @override
   @JsonKey(ignore: true)
-  _$CharacterCopyWith<_Character> get copyWith =>
+  _$$_CharacterCopyWith<_$_Character> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 Info _$InfoFromJson(Map<String, dynamic> json) {
   return _Info.fromJson(json);
 }
-
-/// @nodoc
-class _$InfoTearOff {
-  const _$InfoTearOff();
-
-  _Info call(
-      {required int count, required int pages, String? next, String? prev}) {
-    return _Info(
-      count: count,
-      pages: pages,
-      next: next,
-      prev: prev,
-    );
-  }
-
-  Info fromJson(Map<String, Object?> json) {
-    return Info.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Info = _$InfoTearOff();
 
 /// @nodoc
 mixin _$Info {
@@ -278,21 +241,21 @@ class _$InfoCopyWithImpl<$Res> implements $InfoCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$InfoCopyWith<$Res> implements $InfoCopyWith<$Res> {
-  factory _$InfoCopyWith(_Info value, $Res Function(_Info) then) =
-      __$InfoCopyWithImpl<$Res>;
+abstract class _$$_InfoCopyWith<$Res> implements $InfoCopyWith<$Res> {
+  factory _$$_InfoCopyWith(_$_Info value, $Res Function(_$_Info) then) =
+      __$$_InfoCopyWithImpl<$Res>;
   @override
   $Res call({int count, int pages, String? next, String? prev});
 }
 
 /// @nodoc
-class __$InfoCopyWithImpl<$Res> extends _$InfoCopyWithImpl<$Res>
-    implements _$InfoCopyWith<$Res> {
-  __$InfoCopyWithImpl(_Info _value, $Res Function(_Info) _then)
-      : super(_value, (v) => _then(v as _Info));
+class __$$_InfoCopyWithImpl<$Res> extends _$InfoCopyWithImpl<$Res>
+    implements _$$_InfoCopyWith<$Res> {
+  __$$_InfoCopyWithImpl(_$_Info _value, $Res Function(_$_Info) _then)
+      : super(_value, (v) => _then(v as _$_Info));
 
   @override
-  _Info get _value => super._value as _Info;
+  _$_Info get _value => super._value as _$_Info;
 
   @override
   $Res call({
@@ -301,7 +264,7 @@ class __$InfoCopyWithImpl<$Res> extends _$InfoCopyWithImpl<$Res>
     Object? next = freezed,
     Object? prev = freezed,
   }) {
-    return _then(_Info(
+    return _then(_$_Info(
       count: count == freezed
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
@@ -324,7 +287,7 @@ class __$InfoCopyWithImpl<$Res> extends _$InfoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Info with DiagnosticableTreeMixin implements _Info {
+class _$_Info implements _Info {
   const _$_Info(
       {required this.count, required this.pages, this.next, this.prev});
 
@@ -340,52 +303,49 @@ class _$_Info with DiagnosticableTreeMixin implements _Info {
   final String? prev;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'Info(count: $count, pages: $pages, next: $next, prev: $prev)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'Info'))
-      ..add(DiagnosticsProperty('count', count))
-      ..add(DiagnosticsProperty('pages', pages))
-      ..add(DiagnosticsProperty('next', next))
-      ..add(DiagnosticsProperty('prev', prev));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Info &&
-            (identical(other.count, count) || other.count == count) &&
-            (identical(other.pages, pages) || other.pages == pages) &&
-            (identical(other.next, next) || other.next == next) &&
-            (identical(other.prev, prev) || other.prev == prev));
+            other is _$_Info &&
+            const DeepCollectionEquality().equals(other.count, count) &&
+            const DeepCollectionEquality().equals(other.pages, pages) &&
+            const DeepCollectionEquality().equals(other.next, next) &&
+            const DeepCollectionEquality().equals(other.prev, prev));
   }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, count, pages, next, prev);
 
   @JsonKey(ignore: true)
   @override
-  _$InfoCopyWith<_Info> get copyWith =>
-      __$InfoCopyWithImpl<_Info>(this, _$identity);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(count),
+      const DeepCollectionEquality().hash(pages),
+      const DeepCollectionEquality().hash(next),
+      const DeepCollectionEquality().hash(prev));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_InfoCopyWith<_$_Info> get copyWith =>
+      __$$_InfoCopyWithImpl<_$_Info>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_InfoToJson(this);
+    return _$$_InfoToJson(
+      this,
+    );
   }
 }
 
 abstract class _Info implements Info {
   const factory _Info(
-      {required int count,
-      required int pages,
-      String? next,
-      String? prev}) = _$_Info;
+      {required final int count,
+      required final int pages,
+      final String? next,
+      final String? prev}) = _$_Info;
 
   factory _Info.fromJson(Map<String, dynamic> json) = _$_Info.fromJson;
 
@@ -399,41 +359,12 @@ abstract class _Info implements Info {
   String? get prev;
   @override
   @JsonKey(ignore: true)
-  _$InfoCopyWith<_Info> get copyWith => throw _privateConstructorUsedError;
+  _$$_InfoCopyWith<_$_Info> get copyWith => throw _privateConstructorUsedError;
 }
 
 Results _$ResultsFromJson(Map<String, dynamic> json) {
   return _Results.fromJson(json);
 }
-
-/// @nodoc
-class _$ResultsTearOff {
-  const _$ResultsTearOff();
-
-  _Results call(
-      {required int id,
-      required String name,
-      required String status,
-      required String species,
-      required String gender,
-      required String image}) {
-    return _Results(
-      id: id,
-      name: name,
-      status: status,
-      species: species,
-      gender: gender,
-      image: image,
-    );
-  }
-
-  Results fromJson(Map<String, Object?> json) {
-    return Results.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Results = _$ResultsTearOff();
 
 /// @nodoc
 mixin _$Results {
@@ -509,9 +440,10 @@ class _$ResultsCopyWithImpl<$Res> implements $ResultsCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ResultsCopyWith<$Res> implements $ResultsCopyWith<$Res> {
-  factory _$ResultsCopyWith(_Results value, $Res Function(_Results) then) =
-      __$ResultsCopyWithImpl<$Res>;
+abstract class _$$_ResultsCopyWith<$Res> implements $ResultsCopyWith<$Res> {
+  factory _$$_ResultsCopyWith(
+          _$_Results value, $Res Function(_$_Results) then) =
+      __$$_ResultsCopyWithImpl<$Res>;
   @override
   $Res call(
       {int id,
@@ -523,13 +455,13 @@ abstract class _$ResultsCopyWith<$Res> implements $ResultsCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$ResultsCopyWithImpl<$Res> extends _$ResultsCopyWithImpl<$Res>
-    implements _$ResultsCopyWith<$Res> {
-  __$ResultsCopyWithImpl(_Results _value, $Res Function(_Results) _then)
-      : super(_value, (v) => _then(v as _Results));
+class __$$_ResultsCopyWithImpl<$Res> extends _$ResultsCopyWithImpl<$Res>
+    implements _$$_ResultsCopyWith<$Res> {
+  __$$_ResultsCopyWithImpl(_$_Results _value, $Res Function(_$_Results) _then)
+      : super(_value, (v) => _then(v as _$_Results));
 
   @override
-  _Results get _value => super._value as _Results;
+  _$_Results get _value => super._value as _$_Results;
 
   @override
   $Res call({
@@ -540,7 +472,7 @@ class __$ResultsCopyWithImpl<$Res> extends _$ResultsCopyWithImpl<$Res>
     Object? gender = freezed,
     Object? image = freezed,
   }) {
-    return _then(_Results(
+    return _then(_$_Results(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -571,7 +503,7 @@ class __$ResultsCopyWithImpl<$Res> extends _$ResultsCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Results with DiagnosticableTreeMixin implements _Results {
+class _$_Results implements _Results {
   const _$_Results(
       {required this.id,
       required this.name,
@@ -597,59 +529,55 @@ class _$_Results with DiagnosticableTreeMixin implements _Results {
   final String image;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'Results(id: $id, name: $name, status: $status, species: $species, gender: $gender, image: $image)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'Results'))
-      ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('name', name))
-      ..add(DiagnosticsProperty('status', status))
-      ..add(DiagnosticsProperty('species', species))
-      ..add(DiagnosticsProperty('gender', gender))
-      ..add(DiagnosticsProperty('image', image));
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Results &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.status, status) || other.status == status) &&
-            (identical(other.species, species) || other.species == species) &&
-            (identical(other.gender, gender) || other.gender == gender) &&
-            (identical(other.image, image) || other.image == image));
+            other is _$_Results &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.status, status) &&
+            const DeepCollectionEquality().equals(other.species, species) &&
+            const DeepCollectionEquality().equals(other.gender, gender) &&
+            const DeepCollectionEquality().equals(other.image, image));
   }
-
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, name, status, species, gender, image);
 
   @JsonKey(ignore: true)
   @override
-  _$ResultsCopyWith<_Results> get copyWith =>
-      __$ResultsCopyWithImpl<_Results>(this, _$identity);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(status),
+      const DeepCollectionEquality().hash(species),
+      const DeepCollectionEquality().hash(gender),
+      const DeepCollectionEquality().hash(image));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_ResultsCopyWith<_$_Results> get copyWith =>
+      __$$_ResultsCopyWithImpl<_$_Results>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ResultsToJson(this);
+    return _$$_ResultsToJson(
+      this,
+    );
   }
 }
 
 abstract class _Results implements Results {
   const factory _Results(
-      {required int id,
-      required String name,
-      required String status,
-      required String species,
-      required String gender,
-      required String image}) = _$_Results;
+      {required final int id,
+      required final String name,
+      required final String status,
+      required final String species,
+      required final String gender,
+      required final String image}) = _$_Results;
 
   factory _Results.fromJson(Map<String, dynamic> json) = _$_Results.fromJson;
 
@@ -667,6 +595,6 @@ abstract class _Results implements Results {
   String get image;
   @override
   @JsonKey(ignore: true)
-  _$ResultsCopyWith<_Results> get copyWith =>
+  _$$_ResultsCopyWith<_$_Results> get copyWith =>
       throw _privateConstructorUsedError;
 }

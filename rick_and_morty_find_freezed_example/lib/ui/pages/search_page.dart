@@ -9,10 +9,10 @@ import 'package:rick_and_morty_find_freezed_example/data/models/character.dart';
 import 'package:rick_and_morty_find_freezed_example/ui/widgets/custom_list_tile.dart';
 
 class SearchPage extends StatefulWidget {
-  const SearchPage({Key? key}) : super(key: key);
+  const SearchPage({super.key});
 
   @override
-  _SearchPageState createState() => _SearchPageState();
+  State<SearchPage> createState() => _SearchPageState();
 }
 
 class _SearchPageState extends State<SearchPage> {
@@ -74,10 +74,9 @@ class _SearchPageState extends State<SearchPage> {
               searchDebounce?.cancel();
               searchDebounce = Timer(const Duration(milliseconds: 500), () {
                 context
-                  .read<CharacterBloc>()
-                  .add(CharacterEvent.fetch(name: value, page: _currentPage));
+                    .read<CharacterBloc>()
+                    .add(CharacterEvent.fetch(name: value, page: _currentPage));
               });
-              
             },
           ),
         ),
@@ -102,7 +101,7 @@ class _SearchPageState extends State<SearchPage> {
             loaded: (characterLoaded) {
               _currentCharacter = characterLoaded;
               if (_isPagination) {
-                _currentResults.addAll(_currentCharacter.results);
+                List.from(_currentResults).addAll(_currentCharacter.results);
                 refreshController.loadComplete();
                 _isPagination = false;
               } else {
