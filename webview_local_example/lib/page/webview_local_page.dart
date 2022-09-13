@@ -1,19 +1,25 @@
-
+// import 'dart:convert';
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-// import 'package:webview_flutter/webview_flutter.dart';
+// import 'package:flutter/services.dart';
 import 'package:webview_flutter_plus/webview_flutter_plus.dart';
 
+enum MenuOptions {
+  clearCache,
+  clearCookies,
+}
+
 class WebViewLocalPage extends StatefulWidget {
-  const WebViewLocalPage({Key? key}) : super(key: key);
+  const WebViewLocalPage({super.key});
 
   @override
-  _WebViewLocalPageState createState() => _WebViewLocalPageState();
+  State<WebViewLocalPage> createState() => _WebViewLocalPageState();
 }
 
 class _WebViewLocalPageState extends State<WebViewLocalPage> {
   late WebViewPlusController _webController;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,7 +48,7 @@ class _WebViewLocalPageState extends State<WebViewLocalPage> {
                   actions: [
                     TextButton(
                       onPressed: () {
-                        _webController.webViewController.evaluateJavascript(
+                        _webController.webViewController.runJavascriptReturningResult(
                           'sendOK()',
                         );
                         Navigator.pop(context);

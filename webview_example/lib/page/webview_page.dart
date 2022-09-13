@@ -9,7 +9,7 @@ enum MenuOptions {
 }
 
 class WebViewPage extends StatefulWidget {
-  const WebViewPage({Key? key}) : super(key: key);
+  const WebViewPage({super.key});
 
   @override
   State<WebViewPage> createState() => _WebViewPageState();
@@ -98,7 +98,7 @@ class _WebViewPageState extends State<WebViewPage> {
             Expanded(
               child: WebView(
                 javascriptMode: JavascriptMode.unrestricted,
-                initialUrl: 'https://facebook.com',
+                initialUrl: 'https://flutter.dev',
                 onWebViewCreated: (controller) {
                   _webController = controller;
                 },
@@ -110,7 +110,7 @@ class _WebViewPageState extends State<WebViewPage> {
                   log('Новый сайт: $url');
                   // if (url.contains('https://flutter.dev')) {
                   //   Future.delayed(const Duration(microseconds: 300), () {
-                  //     _webController.evaluateJavascript(
+                  //     _webController.runJavascriptReturningResult(
                   //       "document.getElementsByTagName('footer')[0].style.display='none'",
                   //     );
                   //   });
@@ -143,23 +143,23 @@ class _WebViewPageState extends State<WebViewPage> {
             const email = '';
             const pass = '';
 
-            _webController.evaluateJavascript(
+            _webController.runJavascriptReturningResult(
               "document.getElementById('m_login_email').value='$email'",
             );
 
-            _webController.evaluateJavascript(
+            _webController.runJavascriptReturningResult(
               "document.getElementById('m_login_password').value='$pass'",
             );
-            
+
             await Future.delayed(const Duration(seconds: 1));
             isSubmitting = true;
-            await _webController.evaluateJavascript(
+            await _webController.runJavascriptReturningResult(
               "document.forms[0].submit()",
             );
             // final currentUrl = await _webController.currentUrl();
             // log('Предыдущий сайт: $currentUrl');
             // _webController.loadUrl('https://www.youtube.com');
-            // _webController.evaluateJavascript(
+            // _webController.runJavascriptReturningResult(
             //   "document.getElementsByTagName('footer')[0].style.display='none'",
             // );
           },
@@ -174,6 +174,8 @@ class _WebViewPageState extends State<WebViewPage> {
     if (!hadCookies) {
       message = 'Cookies все были очищены';
     }
+    //  https://docs.flutter.dev/deployment/android#reviewing-the-build-configuration
+    if (!mounted) return; // Проверяем, что виджет смонтирован
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(message)),
     );
@@ -181,6 +183,7 @@ class _WebViewPageState extends State<WebViewPage> {
 
   void _onClearCache(WebViewController controller, BuildContext context) async {
     await _webController.clearCache();
+    if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(content: Text('Кеш очищен')),
     );
