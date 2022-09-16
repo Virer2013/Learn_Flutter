@@ -1,0 +1,13 @@
+{
+    "name": "qr_code_chrome_extension",
+    "description": "QR code tools for chrome extension",
+    "version": "1.0.0",
+    "content_security_policy": {
+        "extension_pages": "script-src 'self' ; object-src 'self'"
+    },
+    "action": {
+        "default_popup": "index.html",
+        "default_icon": "/icons/Icon-192.png"
+    },
+    "manifest_version": 3
+}
