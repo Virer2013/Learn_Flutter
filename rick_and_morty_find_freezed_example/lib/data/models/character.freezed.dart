@@ -104,7 +104,7 @@ class __$$_CharacterCopyWithImpl<$Res> extends _$CharacterCopyWithImpl<$Res>
           : info // ignore: cast_nullable_to_non_nullable
               as Info,
       results: results == freezed
-          ? _value._results
+          ? _value.results
           : results // ignore: cast_nullable_to_non_nullable
               as List<Results>,
     ));
@@ -114,20 +114,15 @@ class __$$_CharacterCopyWithImpl<$Res> extends _$CharacterCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Character implements _Character {
-  const _$_Character({required this.info, required final List<Results> results})
-      : _results = results;
+  const _$_Character({required this.info, required this.results});
 
   factory _$_Character.fromJson(Map<String, dynamic> json) =>
       _$$_CharacterFromJson(json);
 
   @override
   final Info info;
-  final List<Results> _results;
   @override
-  List<Results> get results {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_results);
-  }
+  final List<Results> results;
 
   @override
   String toString() {
@@ -140,7 +135,7 @@ class _$_Character implements _Character {
         (other.runtimeType == runtimeType &&
             other is _$_Character &&
             const DeepCollectionEquality().equals(other.info, info) &&
-            const DeepCollectionEquality().equals(other._results, _results));
+            const DeepCollectionEquality().equals(other.results, results));
   }
 
   @JsonKey(ignore: true)
@@ -148,7 +143,7 @@ class _$_Character implements _Character {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(info),
-      const DeepCollectionEquality().hash(_results));
+      const DeepCollectionEquality().hash(results));
 
   @JsonKey(ignore: true)
   @override

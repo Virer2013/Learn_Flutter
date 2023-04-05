@@ -34,7 +34,7 @@ class _SearchPageState extends State<SearchPage> {
       if (_currentResults.isEmpty) {
         context
             .read<CharacterBloc>()
-            .add(const CharacterEvent.fetch(name: '', page: 1));
+            .add(CharacterEvent.fetch(name: '', page: _currentPage));
       }
     }
 
@@ -101,7 +101,7 @@ class _SearchPageState extends State<SearchPage> {
             loaded: (characterLoaded) {
               _currentCharacter = characterLoaded;
               if (_isPagination) {
-                List.from(_currentResults).addAll(_currentCharacter.results);
+                _currentResults.addAll(_currentCharacter.results);
                 refreshController.loadComplete();
                 _isPagination = false;
               } else {
@@ -124,8 +124,9 @@ class _SearchPageState extends State<SearchPage> {
       enablePullUp: true,
       enablePullDown: false,
       onLoading: () {
-        _isPagination = true;
         _currentPage++;
+        _isPagination = true;
+
         if (_currentPage <= _currentCharacter.info.pages) {
           context.read<CharacterBloc>().add(CharacterEvent.fetch(
               name: _currentSearchStr, page: _currentPage));

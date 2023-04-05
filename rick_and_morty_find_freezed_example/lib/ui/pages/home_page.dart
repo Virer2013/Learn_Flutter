@@ -18,7 +18,7 @@ class HomePage extends StatelessWidget {
         centerTitle: true,
         title: Text(
           title,
-          style: Theme.of(context).textTheme.headline3,
+          style: Theme.of(context).textTheme.displaySmall,
         ),
       ),
       body: BlocProvider(

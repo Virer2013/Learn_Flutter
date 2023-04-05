@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'character.freezed.dart';
 part 'character.g.dart';
 
-@freezed
+@Freezed(makeCollectionsUnmodifiable: false)
 class Character with _$Character {
   const factory Character({
     required Info info,
@@ -13,7 +13,7 @@ class Character with _$Character {
   factory Character.fromJson(Map<String, dynamic> json) => _$CharacterFromJson(json);
 }
 
-@freezed
+@Freezed(makeCollectionsUnmodifiable: false)
 class Info with _$Info {
   const factory Info({
     required int count,
@@ -25,7 +25,7 @@ class Info with _$Info {
   factory Info.fromJson(Map<String, dynamic> json) => _$InfoFromJson(json);
 }
 
-@freezed
+@Freezed(makeCollectionsUnmodifiable: false)
 class Results with _$Results {
   const factory Results({
     required int id,
